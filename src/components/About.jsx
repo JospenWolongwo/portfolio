@@ -46,11 +46,7 @@ const About = () => {
       </motion.div>
 
       <motion.p className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]" variants={fadeIn("", "", 0.1, 1)}>
-        I am a Software Engineer with a Bachelor&apos;s degree and experience as a Junior Full 
-        Stack Developer. I excel in both front-end and back-end technologies, with a strong 
-        focus on creating scalable, user-centered applications. Passionate about problems-solving 
-        and continious learning, I am eager to contribute to innovative projects and further develop 
-        my skills in software development
+      I’m a Software Engineer with a passion for building scalable, user-focused applications. I have over two years of hands-on experience working with both front-end tools like Angular and React and back-end frameworks such as NestJS and Laravel. I enjoy solving complex problems by creating efficient, practical solutions.In my work, I’ve streamlined deployments using Docker, improved team workflows in agile environments, and focused on delivering high-performance applications. I’m always eager to learn and grow, and I’m excited to contribute to innovative projects that make a real impact.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

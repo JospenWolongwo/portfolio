@@ -147,12 +147,13 @@ import {
       iconBg: "#E6DEDD", // You can adjust this color as needed
       date: "November 2023 - Present",
       points: [
-        "Developed and maintained front-end applications using Angular, implementing responsive designs and interactive features to enhance user experience.",
+        "DDesigned user-centric front-end interfaces using Angular and Figma to enhance UX for 1,000+ users.",
         "Designed and built back-end services with NestJS, ensuring robust and scalable server-side functionality.",
         "Utilized Docker for containerization, streamlining development, testing, and deployment processes.",
-        "Collaborated with cross-functional teams to gather requirements, troubleshoot issues, and deliver high-quality software solutions.",
+        "Collaborated with designers, developers and cross-functional teams to gather requirements, troubleshoot issues,create wireframes and interactive prototypes and deliver high-quality software solutions.",
         "Implemented best practices in coding, testing, and documentation to ensure maintainable and efficient code.",
-        "Contributed to agile development processes, including sprint planning, daily stand-ups, and code reviews."
+        "Contributed to agile development processes, including sprint planning, daily stand-ups, and code reviews.",
+        "Conducted usability tests, identifying pain points and improving user flows",
       ],
     },
     {
@@ -264,7 +265,7 @@ import {
         },
       ],
       image: jobit,
-      source_code_link: "https://github.com/hotnaigga/angular",
+      source_code_link: "https://github.com/hotnaigga/task-tracker",
     },
     {
       name: "Online Exam System",
