@@ -35,6 +35,16 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
+// Project image imports
+import event_portal from "./projects/event_portal.png";
+import pikdrive from "./projects/pikdrive.png";
+import hopimed from "./projects/hopimed.png";
+import hello_hardware from "./projects/hello_hardware.png";
+import hello_identity from "./projects/hello_identity.png";
+import secure_vault from "./projects/secure_vault.png";
+import bluewindow_todo from "./projects/bluewindow_todo.png";
+import barber_shop from "./projects/barber_shop.png";
+
 export {
   logo,
   backend,
@@ -68,5 +78,15 @@ export {
   freelance,
   carrent,
   jobit,
-  tripguide
+  tripguide,
+  
+  // Project image exports
+  event_portal,
+  pikdrive,
+  hopimed,
+  hello_hardware,
+  hello_identity,
+  secure_vault,
+  bluewindow_todo,
+  barber_shop
 };

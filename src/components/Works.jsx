@@ -1,5 +1,6 @@
 import { Tilt } from 'react-tilt';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 import { styles } from '../styles';
 import { github } from '../assets';
@@ -7,7 +8,7 @@ import { SectionWrapper } from '../hoc';
 import { projects } from '../constants';
 import { fadeIn, textVariant } from '../utils/motion';
 
-const ProjectCard = ({index, name, description, tags, image, source_code_link}) => {
+const ProjectCard = ({index, name, description, tags, image, source_code_link, demo_link}) => {
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.5, 0.75)}
@@ -23,8 +24,19 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link}) 
         <div className="relative w-full h-[230px]">
           <img src={image} alt={name} className="w-full h-full object-cover rounded-2xl" />
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-            <div onClick={ () => window.open(source_code_link, "_blank")}
-                  className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+            {demo_link && (
+              <div 
+                onClick={() => window.open(demo_link, "_blank")}
+                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer mr-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-1/2 h-1/2 object-contain" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
+            )}
+            <div 
+              onClick={() => window.open(source_code_link, "_blank")}
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img src={github} alt="github" className="w-1/2 h-1/2 object-contain" />
             </div>
@@ -87,5 +99,21 @@ const Works = () => {
     </>
   )
 }
+
+// Add prop types validation
+ProjectCard.propTypes = {
+  index: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  image: PropTypes.string.isRequired,
+  source_code_link: PropTypes.string.isRequired,
+  demo_link: PropTypes.string
+};
 
 export default SectionWrapper(Works, "")
