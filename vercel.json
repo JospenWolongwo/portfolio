@@ -9,6 +9,14 @@
       "dest": "/assets/$1"
     },
     {
+      "src": "/desktop_pc/(.*)",
+      "dest": "/desktop_pc/$1"
+    },
+    {
+      "src": "/planet/(.*)",
+      "dest": "/planet/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
