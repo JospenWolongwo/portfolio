@@ -8,6 +8,7 @@ import {
   html,
   css,
   reactjs,
+  redux,
   tailwind,
   nodejs,
   mongodb,
@@ -55,16 +56,16 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web/Mobile Developer",
+    title: "Web Developer",
     icon: web,
+  },
+  {
+    title: "Mobile Developer",
+    icon: mobile,
   },
   {
     title: "Backend Developer",
     icon: backend,
-  },
-  {
-    title: "Digital Marketer",
-    icon: mobile,
   },
   {
     title: "UI/UX Designer",
@@ -155,27 +156,39 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "November 2023 - Present",
     points: [
-      "Architected and built full-stack healthcare management applications with Angular 17+ and NestJS, implementing role-based access control systems and real-time tracking features.",
-      "Developed responsive UI/UX designs using TailwindCSS and Angular Material that increased user engagement metrics by 35%.",
-      "Engineered secure authentication services with JWT and OAuth2, implementing end-to-end encryption for sensitive data in military applications.",
-      "Optimized database performance with PostgreSQL and TypeORM, improving query response times by 40% through strategic indexing and query optimization.",
-      "Containerized applications with Docker and orchestrated seamless deployments using CI/CD pipelines, reducing deployment time by 60%.",
-      "Implemented comprehensive test coverage with Jest and Cypress, achieving 92% code coverage across critical application components.",
-      "Led agile development teams in delivering complex features on time, facilitating daily stand-ups and code reviews that improved code quality and team productivity.",
+      "Designed user-centric front-end interfaces using Angular and Figma to enhance UX for 1,000+ users.",
+      "Designed and built back-end services with NestJS, ensuring robust and scalable server-side functionality.",
+      "Utilized Docker for containerization, streamlining development, testing, and deployment processes.",
+      "Collaborated with designers, developers and cross-functional teams to gather requirements, troubleshoot issues, create wireframes and interactive prototypes and deliver high-quality software solutions.",
+      "Implemented best practices in coding, testing, and documentation to ensure maintainable and efficient code.",
+      "Contributed to agile development processes, including sprint planning, daily stand-ups, and code reviews.",
+      "Conducted usability tests, identifying pain points and improving user flows",
     ],
   },
   {
-    title: "Full Stack Developer",
+    title: "Junior Full Stack Developer",
     company_name: "CIA Consulting",
     icon: cia,
     iconBg: "#383E56",
     date: "June 2023 - November 2023",
     points: [
-      "Developed event management and ride-sharing platforms using Next.js 14 and Supabase, implementing real-time updates and secure payment processing.",
-      "Built responsive UI components with shadcn/ui and TailwindCSS, creating pixel-perfect interfaces that match Figma designs with 98% accuracy.",
-      "Integrated payment gateways with Stripe API and implemented OAuth social login systems to enhance user convenience and security.",
-      "Created PWA capabilities for mobile applications, providing offline functionality and improving user retention by 25%.",
-      "Optimized front-end performance by implementing code splitting and lazy loading, reducing initial load times by 40% and improving Core Web Vitals scores.",
+      "Developed and maintained web applications using React, creating dynamic and interactive user interfaces.",
+      "Built server-side logic with Laravel, implementing efficient and secure back-end solutions.",
+      "Utilized Next.js for server-side rendering and static site generation, optimizing performance and SEO.",
+      "Collaborated with senior developers to design and implement features, troubleshoot issues, and improve application functionality.",
+      "Participated in code reviews and contributed to team meetings, enhancing the development workflow and ensuring code quality."
+    ],
+  },
+  {
+    title: "Web Developer Intern",
+    company_name: "Estuary Academic and Strategic Institut (INSAM)",
+    icon: insam,
+    iconBg: "#E6DEDD",
+    date: "2022 - 2023",
+    points: [
+      "Gained hands-on experience in web development during Bachelor's degree program.",
+      "Assisted in developing and maintaining web applications.",
+      "Learned and applied best practices in software development and team collaboration."
     ],
   },
   {
@@ -185,11 +198,10 @@ const experiences = [
     iconBg: "#383E56",
     date: "2020 - Present",
     points: [
-      "Designed and developed custom websites for small businesses, including a barber shop site that increased appointments by 45% through an intuitive booking system.",
-      "Created a donation management system that streamlined the process of connecting blood donors with recipients, handling 500+ successful donations within the first quarter.",
-      "Implemented responsive designs and cross-browser compatibility, ensuring seamless experiences across all devices with 99.9% uptime.",
-      "Built custom WordPress themes and plugins, including WooCommerce integrations for e-commerce clients that saw an average 30% increase in online sales.",
-      "Provided ongoing maintenance and support, implementing SEO best practices that improved client search rankings by an average of 12 positions for target keywords.",
+      "Developed and maintained websites and e-commerce platforms using WordPress, including custom theme development and plugin integration.",
+      "Created responsive and user-friendly web applications using modern front-end technologies like React and Angular.",
+      "Implemented back-end solutions using Laravel and Node.js, ensuring robust and scalable server-side functionality.",
+      "Collaborated with clients to gather requirements, provide regular updates, and deliver high-quality web solutions that meet their specific needs."
     ],
   },
 ];
@@ -223,6 +235,28 @@ const testimonials = [
 
 const projects = [
   {
+    name: "Event Portal",
+    description:
+      "A comprehensive event management platform for creating, discovering, and registering for events with secure payment processing. Features include event discovery, real-time updates, and an admin dashboard.",
+    tags: [
+      {
+        name: "Next.js 14",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Supabase",
+        color: "green-text-gradient",
+      },
+      {
+        name: "TailwindCSS",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: event_portal,
+    source_code_link: "https://github.com/JospenWolongwo/event-portal",
+    demo_link: "https://event-planning-portal.vercel.app"
+  },
+  {
     name: "Pikdrive",
     description:
       "Modern ride-sharing platform connecting drivers and passengers with real-time tracking, secure payments, and a responsive UI. Supports PWA capabilities for mobile installation.",
@@ -242,7 +276,7 @@ const projects = [
     ],
     image: pikdrive,
     source_code_link: "https://github.com/JospenWolongwo/pickdrive",
-    demo_link: "https://pikdrive.com",
+    demo_link: "https://pikdrive.com"
   },
   {
     name: "Hopimed",
@@ -264,7 +298,7 @@ const projects = [
     ],
     image: hopimed,
     source_code_link: "https://github.com/JospenWolongwo/hopimed",
-    demo_link: "https://hopimed.netlify.app",
+    demo_link: "https://hopimed.netlify.app"
   },
   {
     name: "Hello Hardware",
@@ -328,29 +362,7 @@ const projects = [
     ],
     image: secure_vault,
     source_code_link: "https://github.com/JospenWolongwo/secure-vault-military",
-    demo_link: "https://secure-vault-military.netlify.app/dashboard",
-  },
-  {
-    name: "Event Portal",
-    description:
-      "A comprehensive event management platform for creating, discovering, and registering for events with secure payment processing. Features include event discovery, real-time updates, and an admin dashboard.",
-    tags: [
-      {
-        name: "Next.js 14",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "TailwindCSS",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: event_portal,
-    source_code_link: "https://github.com/JospenWolongwo/event-portal",
-    demo_link: "https://event-planning-portal.vercel.app",
+    demo_link: "https://secure-vault-military.netlify.app/dashboard"
   },
   {
     name: "BlueWindow Todo",
@@ -371,9 +383,8 @@ const projects = [
       },
     ],
     image: bluewindow_todo,
-    source_code_link:
-      "https://github.com/JospenWolongwo/bluewindow-todo-fullstack",
-    demo_link: "https://bluewindow-todo-fullstack-production.up.railway.app",
+    source_code_link: "https://github.com/JospenWolongwo/bluewindow-todo-fullstack",
+    demo_link: "https://bluewindow-todo-fullstack-production.up.railway.app"
   },
   {
     name: "Barber Shop Website",
@@ -395,7 +406,7 @@ const projects = [
     ],
     image: barber_shop,
     source_code_link: "https://github.com/JospenWolongwo/barber-shop-website",
-    demo_link: "https://jospenwolongwo.github.io/barber-shop-website",
+    demo_link: "https://jospenwolongwo.github.io/barber-shop-website"
   },
   {
     name: "Blood Donate",
