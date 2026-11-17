@@ -12,8 +12,9 @@ export const profile = {
   availability: "Open to remote roles",
   email: "jospenwolongwo@gmail.com",
   github: "https://github.com/JospenWolongwo",
-  linkedin: null as string | null,
-  cv: null as string | null,
+  linkedin: "https://www.linkedin.com/in/jospen/" as string | null,
+  cv: "/Jospen-Wolongwo-CV.pdf" as string | null,
+  site: "https://jospen.vercel.app",
   stack: ["TypeScript", "NestJS", "Next.js", "React Native", "PostgreSQL", "AWS"],
 };
 
@@ -144,9 +145,8 @@ export type Role = {
 export const experience: Role[] = [
   {
     org: "Poky Group SAS",
-    title: "Co-founder & General Director · acting CTO",
-    period: "Jun 2026 – now",
-    note: "Products started in Jan 2025 and moved under Poky Group at founding.",
+    title: "Co-founder & General Director · CTO",
+    period: "2025 – now",
     points: [
       "Lead engineering across five products: PikDrive, TheLouk, HopiMed, Maison Curtis and TheLuxar. Sole engineer on four.",
       "Built mobile-money payments (PawaPay, MTN MoMo, Orange Money) with refunds, payouts and reconciliation.",
@@ -183,9 +183,21 @@ export const experience: Role[] = [
   },
   {
     org: "Kola Group",
-    title: null,
+    title: "Software Developer",
     period: "Oct 2025 – Jul 2026",
-    points: ["Fintech products for online payment transactions."],
+    points: ["Built fintech products for online payment transactions."],
+  },
+  {
+    org: "Hello Computing",
+    title: "Junior Full-stack Developer",
+    period: "Nov 2023 – 2025",
+    points: [],
+  },
+  {
+    org: "CIA Consulting · Yaoundé",
+    title: "Web Developer Intern",
+    period: "May – Nov 2023",
+    points: [],
   },
 ];
 

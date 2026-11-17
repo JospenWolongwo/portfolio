@@ -36,9 +36,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-3 focus:py-2 focus:text-paper">
           Skip to content
         </a>
-        <SiteHeader />
+        <div className="print:hidden"><SiteHeader /></div>
         <main id="main">{children}</main>
-        <SiteFooter />
+        <div className="print:hidden"><SiteFooter /></div>
       </body>
     </html>
   );

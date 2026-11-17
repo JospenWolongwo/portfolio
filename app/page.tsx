@@ -156,14 +156,14 @@ export default function Home() {
                     {r.title && <span className="font-normal text-muted"> · {r.title}</span>}
                   </h3>
                   {r.note && <p className="mt-1 font-mono text-[11.5px] text-muted">{r.note}</p>}
-                  <ul className="mt-3 space-y-2">
+                  {r.points.length > 0 && <ul className="mt-3 space-y-2">
                     {r.points.map((pt) => (
                       <li key={pt} className="flex gap-3 text-[15px] leading-relaxed text-ink-2">
                         <span className="mt-[0.65em] h-1 w-1 shrink-0 rounded-full bg-signal" aria-hidden />
                         {pt}
                       </li>
                     ))}
-                  </ul>
+                  </ul>}
                 </div>
               </li>
             ))}
