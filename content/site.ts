@@ -1,0 +1,227 @@
+// Every claim on this site maps to a commit, a merged PR or a live URL.
+// Usage metrics stay `null` until a real number is pulled from a dashboard
+// (Play Console, Supabase, analytics). A null metric never renders.
+
+export const profile = {
+  name: "Jospen Wolongwo",
+  role: "Full-stack engineer",
+  headline: "I ship products people use, and keep them running.",
+  intro:
+    "Full-stack engineer and co-founder of Poky Group. I build payments, mobile apps, real-time features and the releases that carry them, for the networks and mobile wallets of Central Africa.",
+  location: "Cameroon · UTC+1",
+  availability: "Open to remote roles",
+  email: "jospenwolongwo@gmail.com",
+  github: "https://github.com/JospenWolongwo",
+  linkedin: null as string | null,
+  cv: null as string | null,
+  stack: ["TypeScript", "NestJS", "Next.js", "React Native", "PostgreSQL", "AWS"],
+};
+
+export type Status = "live" | "build" | "delivered";
+
+export type Product = {
+  slug: string;
+  name: string;
+  url: string | null;
+  org: string;
+  what: string;
+  role: string;
+  stack: string[];
+  status: Status;
+  play?: boolean;
+  caseStudy?: string;
+  shot?: string;
+  metric?: { label: string; value: string | null };
+};
+
+export const products: Product[] = [
+  {
+    slug: "nexma",
+    name: "Nexma",
+    url: "https://nexma.org",
+    org: "HES Digital Solutions",
+    what: "Work-management SaaS: teams, contracts, scheduling, attendance, reports.",
+    role: "Top committer on API and web · owns the attendance engine",
+    stack: ["NestJS", "Prisma", "PostgreSQL", "MongoDB", "Redis", "Next.js"],
+    status: "live",
+    play: true,
+    caseStudy: "nexma-attendance",
+    shot: "/shots/nexma-desktop.jpg",
+    metric: { label: "Check-ins recorded", value: null },
+  },
+  {
+    slug: "pikdrive",
+    name: "PikDrive",
+    url: "https://pikdrive.com",
+    org: "Poky Group",
+    what: "Ride-sharing with mobile-money payments, driver payouts and refunds.",
+    role: "Sole engineer since Jan 2025",
+    stack: ["Next.js", "Supabase", "PawaPay", "MTN MoMo", "Orange Money"],
+    status: "live",
+    caseStudy: "pikdrive-idempotency",
+    shot: "/shots/pikdrive-desktop.jpg",
+    metric: { label: "Rides booked", value: null },
+  },
+  {
+    slug: "thelouk",
+    name: "TheLouk",
+    url: "https://thelouk.com",
+    org: "Poky Group",
+    what: "Social app for meeting people at events: rooms, likes, chat.",
+    role: "Core mobile engineer · push, realtime, releases",
+    stack: ["Expo", "React Native", "Supabase", "EAS"],
+    status: "live",
+    play: true,
+    shot: "/shots/thelouk-desktop.jpg",
+    metric: { label: "Installs", value: null },
+  },
+  {
+    slug: "maisoncurtis",
+    name: "Maison Curtis",
+    url: "https://maisoncurtis.com",
+    org: "Poky Group",
+    what: "White-label barber booking: client PWA and barber console.",
+    role: "Sole engineer",
+    stack: ["Next.js", "Supabase", "Turborepo", "pgTAP"],
+    status: "live",
+    shot: "/shots/maisoncurtis-desktop.jpg",
+    metric: { label: "Appointments booked", value: null },
+  },
+  {
+    slug: "hopimed",
+    name: "HopiMed",
+    url: "https://hopimed237.site",
+    org: "Poky Group",
+    what: "On-duty pharmacies and hospitals, with an AI assistant that reads prescriptions.",
+    role: "Sole engineer · built the AI features",
+    stack: ["Angular", "Supabase Edge Functions", "OpenAI", "PWA"],
+    status: "live",
+    metric: { label: "Pharmacies listed", value: null },
+  },
+  {
+    slug: "gajo",
+    name: "Gajo Livestock",
+    url: "https://gajolivestock.com",
+    org: "Gajo Livestock · contract",
+    what: "Agritech marketplace: livestock, vet services, agri-credit.",
+    role: "Owner of the admin console (79 of 85 commits)",
+    stack: ["React 19", "TanStack Query", "Playwright", "GitLab CI"],
+    status: "live",
+    play: true,
+    shot: "/shots/gajo-desktop.jpg",
+  },
+  {
+    slug: "theluxar",
+    name: "TheLuxar",
+    url: null,
+    org: "Poky Group",
+    what: "Commerce, delivery and finance platform: shop, admin console, rider app.",
+    role: "Sole engineer · 15 backend modules, 352 test files",
+    stack: ["NestJS", "Fastify", "Drizzle", "BullMQ", "Expo", "Fly.io"],
+    status: "build",
+    caseStudy: "theluxar-auth-race",
+  },
+  {
+    slug: "fintech-aws",
+    name: "Fintech platform on AWS",
+    url: null,
+    org: "Contract · pre-launch",
+    what: "Independent AWS environment for a 13-app fintech platform, built with CDK.",
+    role: "Cloud engineer · 8/8 services healthy",
+    stack: ["AWS CDK", "ECS", "Aurora", "Valkey", "ECR"],
+    status: "delivered",
+  },
+];
+
+export type Role = {
+  org: string;
+  title: string | null;
+  period: string;
+  note?: string;
+  points: string[];
+};
+
+export const experience: Role[] = [
+  {
+    org: "Poky Group SAS",
+    title: "Co-founder & General Director · acting CTO",
+    period: "Jun 2026 – now",
+    note: "Products started in Jan 2025 and moved under Poky Group at founding.",
+    points: [
+      "Lead engineering across five products: PikDrive, TheLouk, HopiMed, Maison Curtis and TheLuxar. Sole engineer on four.",
+      "Built mobile-money payments (PawaPay, MTN MoMo, Orange Money) with refunds, payouts and reconciliation.",
+      "Set the release standard: CI gates on migrations, Play Store releases through EAS, OTA updates blocked when native code changes.",
+    ],
+  },
+  {
+    org: "HES Digital Solutions",
+    title: "Backend Engineer (delivering full-stack)",
+    period: "Apr 2026 – now",
+    points: [
+      "Top committer on the Nexma API and web app, with 95 merged pull requests on the API.",
+      "Own the attendance engine: contracts planned 30 days ahead, corrections applied as engine revisions, live cursor-paginated views.",
+      "Built roles and positions with audited hand-overs, bulk invitations and 100 MB streamed uploads.",
+    ],
+  },
+  {
+    org: "Gajo Livestock",
+    title: "Frontend Engineer · contract",
+    period: "Mar 2026 – now",
+    points: [
+      "Own the React 19 admin console: subscription plans, per-user AI quota tracking, credit flows and statistics.",
+      "Added Playwright end-to-end tests to GitLab CI, with Firebase deployments per environment.",
+    ],
+  },
+  {
+    org: "Fintech platform (pre-launch)",
+    title: "Cloud Engineer · contract",
+    period: "Jul – Aug 2026",
+    points: [
+      "Stood up an independent AWS environment with CDK: VPC, Aurora, Valkey, S3, ECR and three ECS clusters behind HTTPS. 8 of 8 services healthy.",
+      "Documented it for the next engineer: ADRs, a dated risk register, runbooks and a billing guardrail.",
+    ],
+  },
+  {
+    org: "Kola Group",
+    title: null,
+    period: "Oct 2025 – Jul 2026",
+    points: ["Fintech products for online payment transactions."],
+  },
+];
+
+export const principles = [
+  {
+    title: "Retries must be safe.",
+    body: "Mobile networks drop requests. A booking or a payment sent twice must still happen once.",
+    proof: "PikDrive · idempotent bookings",
+    href: "/work/pikdrive-idempotency/",
+  },
+  {
+    title: "Find the real cause, then fix it narrowly.",
+    body: "A flaky test led to a token race that logged real users out. The fix accepts exactly one token generation, for ten seconds.",
+    proof: "TheLuxar · PR #51",
+    href: "/work/theluxar-auth-race/",
+  },
+  {
+    title: "Say what isn't verified yet.",
+    body: "My pull requests separate what was tested locally, what ran on a sandbox and what still needs staging.",
+    proof: "TheLuxar · PR #52",
+    href: "/work/theluxar-auth-race/#more",
+  },
+  {
+    title: "Write it down for the next engineer.",
+    body: "ADRs, runbooks and dated risk registers, so a system survives the person who built it.",
+    proof: "AWS contract · 11 readiness domains",
+    href: null,
+  },
+];
+
+// Unique commits authored per month across every repository I work in (private included).
+// Generated from git history on 2026-11-17.
+export const commitsByMonth: [string, number][] = [
+  ["2025-01", 2], ["2025-02", 2], ["2025-03", 32], ["2025-04", 49], ["2025-05", 73],
+  ["2025-06", 36], ["2025-07", 62], ["2025-08", 39], ["2025-09", 42], ["2025-10", 135],
+  ["2025-11", 61], ["2025-12", 66], ["2026-01", 72], ["2026-02", 89], ["2026-03", 77],
+  ["2026-04", 172], ["2026-05", 195], ["2026-06", 125], ["2026-07", 161], ["2026-08", 161],
+  ["2026-09", 651], ["2026-10", 730], ["2026-11", 349],
+];
