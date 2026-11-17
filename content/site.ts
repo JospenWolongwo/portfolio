@@ -191,13 +191,13 @@ export const experience: Role[] = [
     org: "Hello Computing",
     title: "Junior Full-stack Developer",
     period: "Nov 2023 – 2025",
-    points: [],
+    points: ["Built an e-commerce store and a digital business card with QR scanning, using NestJS, Angular, Redis and SCSS."],
   },
   {
     org: "CIA Consulting · Yaoundé",
     title: "Web Developer Intern",
     period: "May – Nov 2023",
-    points: [],
+    points: ["First professional role: developed client web applications with Laravel and React."],
   },
 ];
 
