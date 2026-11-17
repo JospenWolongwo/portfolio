@@ -59,7 +59,7 @@ const doc = new Document({
       { id: "Summary", name: "CV Summary", run: { size: 20 },
         paragraph: { spacing: { before: 200, after: 0, line: 264 } } },
       { id: "Section", name: "CV Section", run: { font: HEAD, size: 21, color: INK },
-        paragraph: { spacing: { before: 260, after: 100 }, keepNext: true,
+        paragraph: { spacing: { before: 230, after: 90 }, keepNext: true,
           border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: "BFBFBF", space: 3 } } } },
       { id: "Role", name: "CV Role", run: { size: 21 },
         paragraph: { spacing: { before: 130, after: 0 }, keepNext: true,
@@ -118,7 +118,7 @@ const doc = new Document({
       bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): built an independent AWS environment with CDK for 13 apps: VPC, Aurora, Valkey, ECR and three ECS clusters. All 8 services healthy at hand-over, with ADRs, runbooks and a risk register."),
 
       role("Kola Group", "Software Developer", "Oct 2025 – Jul 2026"),
-      bullet("Built fintech products for online payment transactions."),
+      bullet("Built payment-aggregator services for fintech clients: pay-ins, payouts, mass payments and other money-movement operations."),
 
       role("Hello Computing", "Junior Full-Stack Developer", "Nov 2023 – 2025"),
       bullet("Built an e-commerce store and a digital business card with QR scanning, using NestJS, Angular, Redis and SCSS."),
@@ -127,11 +127,20 @@ const doc = new Document({
       bullet("First professional role: developed client web applications with Laravel and React."),
 
       section("Skills"),
-      skill("Languages", "TypeScript, JavaScript, SQL, PHP"),
+      skill("Programming", "TypeScript, JavaScript, SQL, PHP"),
       skill("Backend", "NestJS, Fastify, Prisma, Drizzle, Redis, BullMQ, Supabase, Laravel"),
       skill("Frontend and mobile", "Next.js, React, Angular, React Native with Expo, Tailwind CSS"),
       skill("Data and cloud", "PostgreSQL, MongoDB, AWS (CDK, ECS, Aurora), Vercel, Fly.io, Firebase"),
       skill("Delivery", "GitHub Actions, GitLab CI, Playwright, Testcontainers, mobile-money integrations"),
+
+      skill("Spoken", "English and French, professional working proficiency"),
+
+      section("Education"),
+      new Paragraph({ style: "Role", children: [
+        new TextRun({ text: "Bachelor's degree and HND in Software Engineering", bold: true }),
+        new TextRun("  ·  both graded Excellent"),
+      ] }),
+      context([new TextRun("Institut Universitaire et Stratégique de l'Estuaire (IUEs/INSAM), Cameroon")]),
     ],
   }],
 });

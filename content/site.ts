@@ -185,7 +185,7 @@ export const experience: Role[] = [
     org: "Kola Group",
     title: "Software Developer",
     period: "Oct 2025 – Jul 2026",
-    points: ["Built fintech products for online payment transactions."],
+    points: ["Built payment-aggregator services for fintech clients: pay-ins, payouts, mass payments and other money-movement operations."],
   },
   {
     org: "Hello Computing",
