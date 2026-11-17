@@ -136,11 +136,9 @@ const doc = new Document({
       skill("Spoken", "English and French, professional working proficiency"),
 
       section("Education"),
-      new Paragraph({ style: "Role", children: [
-        new TextRun({ text: "Bachelor's degree and HND in Software Engineering", bold: true }),
-        new TextRun("  ·  both graded Excellent"),
-      ] }),
-      context([new TextRun("Institut Universitaire et Stratégique de l'Estuaire (IUEs/INSAM), Cameroon")]),
+      role("Professional Bachelor's degree in Software Engineering", "University of Dschang, Grade: Excellent", "2023"),
+      context([new TextRun("Studied at Institut Universitaire et Stratégique de l'Estuaire (IUEs/INSAM)")]),
+      role("Higher National Diploma (HND) in Software Engineering", "IUEs/INSAM, Grade: Excellent", "2022"),
     ],
   }],
 });
