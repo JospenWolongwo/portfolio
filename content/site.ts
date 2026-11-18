@@ -97,6 +97,7 @@ export const products: Product[] = [
     role: "Sole engineer · built the AI features",
     stack: ["Angular", "Supabase Edge Functions", "OpenAI", "PWA"],
     status: "live",
+    shot: "/shots/hopimed-desktop.jpg",
     metric: { label: "Pharmacies listed", value: null },
   },
   {
