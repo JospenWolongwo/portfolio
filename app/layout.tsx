@@ -21,7 +21,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(profile.site),
   title: { default: `${profile.name} · ${profile.role}`, template: `%s · ${profile.name}` },
   description: profile.intro,
-  openGraph: { title: `${profile.name} · ${profile.role}`, description: profile.headline, type: "website" },
+  alternates: { canonical: "/" },
+  openGraph: { title: `${profile.name} · ${profile.role}`, description: profile.headline, type: "website", url: "/" },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true },
 };
 
 // Runs before paint so a saved theme choice never flashes.

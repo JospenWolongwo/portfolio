@@ -10,8 +10,31 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const c = getCaseStudy((await params).slug);
-  return c ? { title: c.title, description: c.summary } : {};
+  if (!c) return {};
+  const url = `/work/${c.slug}/`;
+  return {
+    title: c.title,
+    description: c.summary,
+    alternates: { canonical: url },
+    openGraph: { type: "article", url, title: c.title, description: c.summary, images: [`/og/${c.slug}.png`] },
+    twitter: { card: "summary_large_image", title: c.title, description: c.summary, images: [`/og/${c.slug}.png`] },
+  };
 }
+
+// Where each section sits in the story, so a reader can jump to the decision or the validation.
+const phase: Record<string, string> = {
+  Context: "Context",
+  "The symptom": "Problem",
+  "The problem": "Problem",
+  "The real cause": "Diagnosis",
+  "The decision": "Decision",
+  "The design": "Decision",
+  Proof: "Validation",
+  "What it changed for users": "Outcome",
+  "What the client got": "Outcome",
+  "Around it": "Related work",
+  "Two more from the same codebase": "Related work",
+};
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const c = getCaseStudy((await params).slug);
@@ -59,15 +82,23 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           ))}
         </dl>
 
-        <div className="py-12">
+        <p className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-xl border border-rule bg-card px-4 py-3 text-[14.5px] leading-relaxed text-ink-2">
+          <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-signal">Evidence · {c.stage.label}</span>
+          {c.stage.detail}
+        </p>
+
+        <div className="py-8">
           {c.sections.map((s, i) => (
             <section key={s.heading} id={s.heading.toLowerCase().includes("more") ? "more" : undefined} className="border-b border-rule py-10 last:border-0">
-              <h2 className="flex items-baseline gap-3 font-display text-[2rem] leading-tight">
-                <span className="font-mono text-[12px] text-signal">{String(i + 1).padStart(2, "0")}</span>
-                {s.heading}
-              </h2>
+              {phase[s.heading] && (
+                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+                  <span className="text-signal">{String(i + 1).padStart(2, "0")}</span>
+                  {phase[s.heading] !== s.heading && ` · ${phase[s.heading]}`}
+                </p>
+              )}
+              <h2 className="mt-2 font-display text-[clamp(1.6rem,4vw,2rem)] leading-tight">{s.heading}</h2>
               {s.body.map((para) => (
-                <p key={para.slice(0, 32)} className="mt-4 max-w-[68ch] text-[16.5px] leading-[1.75] text-ink-2">
+                <p key={para.slice(0, 32)} className="mt-4 max-w-[68ch] text-[16px] leading-[1.75] text-ink-2 sm:text-[16.5px]">
                   {para}
                 </p>
               ))}
@@ -88,7 +119,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                     <span>{s.code.file}</span>
                     <span className="uppercase">{s.code.lang} · excerpt</span>
                   </figcaption>
-                  <pre className="code-block overflow-x-auto p-5 font-mono text-[12.5px] leading-[1.7]">
+                  <pre tabIndex={0} aria-label={`Code excerpt from ${s.code.file}`} className="code-block overflow-x-auto p-4 font-mono text-[12px] leading-[1.7] sm:p-5 sm:text-[12.5px]">
                     <code>{s.code.source}</code>
                   </pre>
                 </figure>

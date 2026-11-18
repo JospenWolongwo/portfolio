@@ -11,7 +11,8 @@
     "check:live": "node scripts/check-live.mjs",
     "build": "next build",
     "typecheck": "tsc --noEmit",
-    "lint": "tsc --noEmit"
+    "lint": "eslint .",
+    "check": "pnpm typecheck && pnpm lint"
   },
   "dependencies": {
     "next": "16.2.3",
@@ -23,6 +24,8 @@
     "@types/node": "25.6.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.2.3",
     "tailwindcss": "4.2.2",
     "typescript": "6.0.3"
   }

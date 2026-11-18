@@ -32,7 +32,7 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm typecheck
+      - run: pnpm check
       - name: Verify live products
         run: pnpm check:live
       - name: Pull Vercel settings

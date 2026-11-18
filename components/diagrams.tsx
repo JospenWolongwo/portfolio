@@ -117,7 +117,7 @@ function Horizon() {
 
 export function Diagram({ k }: { k: DiagramKey }) {
   return (
-    <figure className="my-8 overflow-x-auto rounded-2xl border border-rule bg-card p-4 sm:p-6">
+    <figure tabIndex={0} aria-label="Diagram, scrolls sideways on small screens" className="my-8 overflow-x-auto rounded-2xl border border-rule bg-card p-4 sm:p-6">
       <div className="min-w-[520px]">
         {k === "token-race" && <TokenRace />}
         {k === "idempotency" && <Idempotency />}
