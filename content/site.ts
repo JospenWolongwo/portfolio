@@ -114,13 +114,14 @@ export const products: Product[] = [
   {
     slug: "theluxar",
     name: "TheLuxar",
-    url: null,
+    url: "https://shop-five-mocha.vercel.app/fr",
     org: "Poky Group",
     what: "Commerce, delivery and finance platform: shop, admin console, rider app.",
     role: "Sole engineer · 15 backend modules, 352 test files",
     stack: ["NestJS", "Fastify", "Drizzle", "BullMQ", "Expo", "Fly.io"],
     status: "build",
     caseStudy: "theluxar-auth-race",
+    shot: "/shots/theluxar-desktop.jpg",
   },
   {
     slug: "fintech-aws",

@@ -59,7 +59,7 @@ export function Systems() {
             <div className="mt-auto flex flex-wrap gap-x-4 gap-y-1 pt-5 font-mono text-[12px]">
               {p.url && (
                 <a href={p.url} className="text-ink hover:text-signal" target="_blank" rel="noreferrer">
-                  Visit ↗
+                  {p.status === "build" ? "Staging ↗" : "Visit ↗"}
                 </a>
               )}
               {p.caseStudy && (
