@@ -18,5 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ];
     }),
     { url: `${profile.site}/Jospen-Wolongwo-CV.pdf`, priority: 0.6 },
+    { url: `${profile.site}/Jospen-Wolongwo-CV-FR.pdf`, priority: 0.5 },
   ];
 }

@@ -11,6 +11,7 @@ export const profile = {
     "Ingénieur TypeScript qui prend en charge les produits de bout en bout : modèle de données, API, clients web et mobile, CI et cloud. Depuis 2023, je travaille au-delà des frontières : à distance pour une entreprise en Allemagne, dans une équipe répartie entre le Canada et le Cameroun, et pour un client en Belgique. J'ai cofondé Poky Group. Ma spécialité : des systèmes qui restent justes en production, des paiements au temps réel, en passant par les versions mobiles et AWS.",
   location: "Cameroun · UTC+1",
   availability: "Ouvert aux postes à distance, partout dans le monde",
+  cv: "/Jospen-Wolongwo-CV-FR.pdf" as string | null,
 };
 
 const productText: Record<string, Pick<Product, "org" | "what" | "role"> & { metric?: string }> = {

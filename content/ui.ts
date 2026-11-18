@@ -67,7 +67,7 @@ const fr: typeof en = {
   headline: ["Je livre des produits que les gens utilisent,", "et je les fais tourner."],
   nav: { work: "Projets", systems: "Systèmes", experience: "Parcours", contact: "Contact", menu: "Menu" },
   cv: "CV",
-  cvPdf: "(PDF, en anglais)",
+  cvPdf: "(PDF)",
   downloadCv: "Télécharger le CV",
   readCases: "Lire les études de cas",
   stats: { inProd: "En production", play: "Sur Google Play", sole: "Seul ingénieur sur" },

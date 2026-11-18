@@ -72,7 +72,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <div className="mt-8 flex flex-wrap gap-3">
               {profile.cv && (
                 <a href={profile.cv} className="rounded-full bg-ink px-5 py-3 text-[15px] font-medium text-paper hover:opacity-90">
-                  {u.downloadCv} <span className="font-mono text-[12px] opacity-70">PDF{locale === "fr" ? " · EN" : ""}</span>
+                  {u.downloadCv} <span className="font-mono text-[12px] opacity-70">PDF</span>
                 </a>
               )}
               <Link href="#work" className="rounded-full border border-rule px-5 py-3 text-[15px] hover:border-ink">

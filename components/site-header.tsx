@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { profile } from "@/content/site";
+import { getSite } from "@/content";
 import { t } from "@/content/ui";
 import { localeOf, localize } from "@/lib/i18n";
 import { ThemeToggle } from "./theme-toggle";
@@ -12,6 +12,7 @@ import { LanguageSwitch } from "./language-switch";
 
 export function SiteHeader() {
   const locale = localeOf(usePathname());
+  const { profile } = getSite(locale);
   const u = t(locale);
   // Keep <html lang> right after in-app language switches (the built HTML already has it).
   useEffect(() => {

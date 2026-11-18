@@ -1,5 +1,12 @@
 # CV
 
-`Jospen-Wolongwo-CV.docx` is the master. Edit it in Word (only paragraph styles, bullets and a right tab stop: no tables or text boxes), then File → Save As → PDF to `public/Jospen-Wolongwo-CV.pdf` and push.
+Two one-page A4 CVs, same layout:
 
-`build-docx.js` regenerates the original layout from code (`npm i docx@9 && node build-docx.js out.docx`); after hand edits in Word, treat the .docx as the source.
+| Language | Word master | Published PDF | Generator |
+|---|---|---|---|
+| English | `Jospen-Wolongwo-CV.docx` | `public/Jospen-Wolongwo-CV.pdf` | `build-docx.js` |
+| French | `Jospen-Wolongwo-CV-FR.docx` | `public/Jospen-Wolongwo-CV-FR.pdf` | `build-docx.fr.js` |
+
+Edit the .docx in Word (paragraph styles, bullets and a right tab stop only: no tables or text boxes), then File → Save As → PDF over the matching file in `public/` and push. The French site links the French PDF; the English site links the English one.
+
+Keep both CVs factually identical: when one changes, change the other.

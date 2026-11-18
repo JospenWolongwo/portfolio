@@ -48,7 +48,7 @@ const doc = new Document({
   creator: "Jospen Wolongwo",
   title: "Jospen Wolongwo · Full-Stack Engineer · CV",
   styles: {
-    default: { document: { run: { font: FONT, size: 21, color: INK } } },
+    default: { document: { run: { font: FONT, size: 21, color: INK, language: { value: "en-US" } } } },
     characterStyles: [
       { id: "Hyperlink", name: "Hyperlink", run: { color: INK, underline: {} } },
     ],
@@ -63,15 +63,15 @@ const doc = new Document({
       { id: "Summary", name: "CV Summary", run: { size: 21 },
         paragraph: { spacing: { before: 170, after: 0, line: 268 } } },
       { id: "Section", name: "CV Section", run: { font: HEAD, size: 24, color: INK },
-        paragraph: { spacing: { before: 210, after: 100 }, keepNext: true,
+        paragraph: { spacing: { before: 190, after: 90 }, keepNext: true,
           border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: "BFBFBF", space: 3 } } } },
       { id: "Role", name: "CV Role", run: { size: 22 },
-        paragraph: { spacing: { before: 135, after: 0 }, keepNext: true,
+        paragraph: { spacing: { before: 120, after: 0 }, keepNext: true,
           tabStops: [{ type: TabStopType.RIGHT, position: RIGHT }] } },
       { id: "Context", name: "CV Context", run: { size: 19, italics: true, color: GREY },
         paragraph: { spacing: { before: 10, after: 30 }, keepNext: true } },
       { id: "Bullet", name: "CV Bullet", run: { size: 21 },
-        paragraph: { spacing: { before: 0, after: 55, line: 264 } } },
+        paragraph: { spacing: { before: 0, after: 45, line: 264 } } },
       { id: "Skill", name: "CV Skill", run: { size: 21 },
         paragraph: { spacing: { before: 0, after: 30 }, indent: { left: SKILL_COL, hanging: SKILL_COL },
           tabStops: [{ type: TabStopType.LEFT, position: SKILL_COL }] } },
@@ -100,7 +100,7 @@ const doc = new Document({
       ] }),
 
       new Paragraph({ style: "Summary", children: [
-        new TextRun("Full-stack product engineer with over three years owning SaaS, payment and mobile products end to end, from PostgreSQL and TypeScript APIs to React Native releases and AWS. I have worked across borders, with teams and clients in Germany, Canada and Belgium. My focus is reliability: idempotent payments, rules enforced by the database, tested releases."),
+        new TextRun("Full-stack product engineer with over three years owning SaaS, payment and mobile products end to end, from PostgreSQL and TypeScript APIs to React Native and AWS. I work across borders, with teams and clients in Germany, Canada and Belgium, and focus on reliability: idempotent payments, database-enforced rules, tested releases."),
       ] }),
 
       section("Experience"),
@@ -132,12 +132,14 @@ const doc = new Document({
       role("CIA Consulting, Yaoundé", "Web Developer Intern", "May 2023 – Nov 2023", "https://cia-service.com"),
       bullet("First professional role: developed client web applications with Laravel and React."),
 
-      section("Skills"),
-      skill("Languages", "TypeScript, JavaScript, SQL, PHP  ·  English and French (professional)"),
+      section("Skills, languages and interests"),
+      skill("Programming", "TypeScript, JavaScript, SQL, PHP"),
       skill("Backend and data", "NestJS, Fastify, Prisma, Drizzle, PostgreSQL, Redis, BullMQ, Supabase, Laravel"),
       skill("Web and mobile", "Next.js, React, Angular, React Native (Expo), Tailwind CSS"),
       skill("Cloud and delivery", "AWS (CDK, ECS, Aurora), Vercel, Fly.io, Firebase, GitHub Actions, GitLab CI, Playwright"),
       skill("Payments and AI", "Stripe, PawaPay, MTN MoMo, Orange Money, OpenAI tools and vision"),
+      skill("Languages", "English and French, both at professional working proficiency"),
+      skill("Interests", "Fintech and financial inclusion in Africa · building products · fitness and swimming"),
 
       section("Education"),
       role("Professional Bachelor's (Licence Professionnelle), Computer Engineering, Software Engineering option", null, "2023"),
