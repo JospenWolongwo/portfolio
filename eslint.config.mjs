@@ -4,7 +4,7 @@ import nextTypescript from "eslint-config-next/typescript";
 const config = [
   ...nextCoreWebVitals,
   ...nextTypescript,
-  { ignores: [".next/**", "out/**", "node_modules/**", "next-env.d.ts", "cv/build-docx.js"] },
+  { ignores: [".next/**", "out/**", "node_modules/**", "next-env.d.ts", "cv/**"] },
 ];
 
 export default config;
