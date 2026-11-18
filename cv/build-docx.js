@@ -120,7 +120,7 @@ const doc = new Document({
       bullet(b("TheLuxar"), " (staging, pre-launch): 130 merged PRs, solo. Commerce and delivery platform on NestJS, Fastify, Redis and BullMQ. Fixed a token-rotation race that would have logged customers out."),
 
       role("Contract work", null, "Mar 2026 – Present"),
-      bullet(b("Gajo Livestock"), " (agritech, Google Play): own the React admin console, 79 of 85 commits. Subscriptions, AI usage quotas, Playwright tests in GitLab CI."),
+      bullet(b("Gajo Livestock"), " (agritech, Google Play): led the landing page and admin console; built the web marketplace flow from catalogue to checkout, payment and orders, with Playwright tests and CI release gates."),
       bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): 13-app AWS environment in CDK, 8/8 services healthy at hand-over."),
 
       role("Kola Group", "Software Developer", "Oct 2025 – Jul 2026", "https://kolagroup.io"),

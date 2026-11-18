@@ -107,8 +107,8 @@ export const products: Product[] = [
     url: "https://gajolivestock.com",
     org: "Gajo Livestock · contract",
     what: "Agritech marketplace: livestock, vet services, agri-credit.",
-    role: "Owner of the admin console (79 of 85 commits)",
-    stack: ["React 19", "TanStack Query", "Playwright", "GitLab CI"],
+    role: "Led the landing page and admin console; built the web marketplace flow, catalogue to paid order",
+    stack: ["Next.js 16", "React 19", "TanStack Query", "Playwright", "GitLab CI", "Firebase"],
     status: "live",
     play: true,
     shot: "/shots/gajo-desktop.jpg",
@@ -177,8 +177,9 @@ export const experience: Role[] = [
     title: "Frontend Engineer · contract",
     period: "Mar 2026 – now",
     points: [
-      "Own the React 19 admin console: subscription plans, per-user AI quota tracking, credit flows and statistics.",
-      "Added Playwright end-to-end tests to GitLab CI, with Firebase deployments per environment.",
+      "Built the web app's marketplace flow: home, catalogue and product pages, cart, checkout, payment registration, orders and delivery, subscription plans.",
+      "Lead on the landing page (about 70% of its code) and the React 19 admin console (95% of commits): subscription plans, per-user AI quota tracking, credit flows and statistics.",
+      "Added Playwright end-to-end tests and release gates to GitLab CI, with Firebase deployments per environment.",
     ],
   },
   {
