@@ -2,7 +2,6 @@ import Link from "next/link";
 import { experience, principles, products, profile } from "@/content/site";
 import { caseStudies } from "@/content/case-studies";
 import { StatusBoard } from "@/components/status-board";
-import { CommitRibbon } from "@/components/commit-ribbon";
 import { Systems } from "@/components/systems";
 
 function Eyebrow({ n, children }: { n: string; children: React.ReactNode }) {
@@ -58,9 +57,6 @@ export default function Home() {
             <p className="mt-6 font-mono text-[11.5px] text-muted">{profile.stack.join("  ·  ")}</p>
           </div>
           <StatusBoard />
-        </div>
-        <div className="relative mx-auto max-w-6xl px-4 pb-20 sm:px-6">
-          <CommitRibbon />
         </div>
       </section>
 

@@ -18,6 +18,7 @@ const inter = localFont({ src: "./fonts/inter-normal.woff2", weight: "400 700", 
 const mono = localFont({ src: "./fonts/mono-normal.woff2", weight: "400 600", variable: "--font-jetbrains", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(profile.site),
   title: { default: `${profile.name} · ${profile.role}`, template: `%s · ${profile.name}` },
   description: profile.intro,
   openGraph: { title: `${profile.name} · ${profile.role}`, description: profile.headline, type: "website" },

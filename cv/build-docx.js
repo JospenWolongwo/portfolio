@@ -62,7 +62,7 @@ const doc = new Document({
         paragraph: { spacing: { before: 230, after: 90 }, keepNext: true,
           border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: "BFBFBF", space: 3 } } } },
       { id: "Role", name: "CV Role", run: { size: 21 },
-        paragraph: { spacing: { before: 130, after: 0 }, keepNext: true,
+        paragraph: { spacing: { before: 115, after: 0 }, keepNext: true,
           tabStops: [{ type: TabStopType.RIGHT, position: RIGHT }] } },
       { id: "Context", name: "CV Context", run: { size: 18, italics: true, color: GREY },
         paragraph: { spacing: { before: 10, after: 30 }, keepNext: true } },
@@ -95,13 +95,13 @@ const doc = new Document({
       ] }),
 
       new Paragraph({ style: "Summary", children: [
-        new TextRun("Full-stack engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, building and running production products end to end: database, API, web and mobile clients, CI and cloud. I currently work on six live products, three of them on Google Play. Most of my work is payments over mobile money and systems that must stay correct on unreliable networks."),
+        new TextRun("Full-stack engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, currently working remotely for Nexma, a Canadian SaaS company. I build and run products end to end, from database to mobile release: six are live, three on Google Play. Most of my work is mobile-money payments and systems that stay correct on unreliable networks."),
       ] }),
 
       section("Experience"),
 
-      role("HES Digital Solutions", "Backend Engineer, delivering full-stack", "Apr 2026 – Present"),
-      context([new TextRun("Nexma ("), link("nexma.org", "https://nexma.org"), new TextRun("), work-management SaaS on web and Google Play  ·  NestJS, Prisma, PostgreSQL, Redis, Next.js")]),
+      role("Nexma", "Backend Engineer, delivering full-stack", "Apr 2026 – Present"),
+      context([new TextRun("Remote, Canada  ·  "), link("nexma.org", "https://nexma.org"), new TextRun(", work-management SaaS on web and Google Play  ·  NestJS, PostgreSQL, Next.js")]),
       bullet("Top committer on the API and web app, with ", b("95 merged pull requests"), " on the API."),
       bullet("Designed the attendance engine: every contract planned ", b("30 days ahead"), ", replanned safely when a schedule changes, with revision checks and idempotency keys so retries never apply twice."),
       bullet("Built roles and positions with audited hand-overs, bulk invitations and streamed uploads up to 100 MB."),
@@ -136,9 +136,8 @@ const doc = new Document({
       skill("Spoken", "English and French, professional working proficiency"),
 
       section("Education"),
-      role("Professional Bachelor's degree in Software Engineering", "University of Dschang, Grade: Excellent", "2023"),
-      context([new TextRun("Studied at Institut Universitaire et Stratégique de l'Estuaire (IUEs/INSAM)")]),
-      role("Higher National Diploma (HND) in Software Engineering", "IUEs/INSAM, Grade: Excellent", "2022"),
+      role("Professional Bachelor's in Software Engineering", "University of Dschang, via IUEs/INSAM · Excellent", "2023"),
+      role("HND in Software Engineering", "IUEs/INSAM · Excellent", "2022"),
     ],
   }],
 });

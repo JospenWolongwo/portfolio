@@ -119,7 +119,7 @@ rotate(presented: string, next: string, now = new Date()): void {
     kicker: "Domain engine · Scheduling · SaaS",
     title: "An attendance engine that stays 30 days ahead",
     product: "Nexma",
-    org: "HES Digital Solutions",
+    org: "Nexma · Canada",
     period: "Apr 2026 – now",
     role: "Backend engineer, delivering full-stack · top committer",
     summary:

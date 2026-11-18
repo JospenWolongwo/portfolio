@@ -7,7 +7,7 @@ export const profile = {
   role: "Full-stack engineer",
   headline: "I ship products people use, and keep them running.",
   intro:
-    "Full-stack engineer and co-founder of Poky Group. I build payments, mobile apps, real-time features and the releases that carry them, for the networks and mobile wallets of Central Africa.",
+    "Full-stack engineer working remotely for Nexma, a Canadian SaaS company, and co-founder of Poky Group. I build payments, mobile apps, real-time features and the releases that carry them, for the networks and mobile wallets of Central Africa.",
   location: "Cameroon · UTC+1",
   availability: "Open to remote roles",
   email: "jospenwolongwo@gmail.com",
@@ -40,7 +40,7 @@ export const products: Product[] = [
     slug: "nexma",
     name: "Nexma",
     url: "https://nexma.org",
-    org: "HES Digital Solutions",
+    org: "Nexma · Canada",
     what: "Work-management SaaS: teams, contracts, scheduling, attendance, reports.",
     role: "Top committer on API and web · owns the attendance engine",
     stack: ["NestJS", "Prisma", "PostgreSQL", "MongoDB", "Redis", "Next.js"],
@@ -154,11 +154,11 @@ export const experience: Role[] = [
     ],
   },
   {
-    org: "HES Digital Solutions",
+    org: "Nexma · Canada (remote)",
     title: "Backend Engineer (delivering full-stack)",
     period: "Apr 2026 – now",
     points: [
-      "Top committer on the Nexma API and web app, with 95 merged pull requests on the API.",
+      "Top committer on the API and web app, with 95 merged pull requests on the API.",
       "Own the attendance engine: contracts planned 30 days ahead, corrections applied as engine revisions, live cursor-paginated views.",
       "Built roles and positions with audited hand-overs, bulk invitations and 100 MB streamed uploads.",
     ],
@@ -226,14 +226,4 @@ export const principles = [
     proof: "AWS contract · 11 readiness domains",
     href: null,
   },
-];
-
-// Unique commits authored per month across every repository I work in (private included).
-// Generated from git history on 2026-11-17.
-export const commitsByMonth: [string, number][] = [
-  ["2025-01", 2], ["2025-02", 2], ["2025-03", 32], ["2025-04", 49], ["2025-05", 73],
-  ["2025-06", 36], ["2025-07", 62], ["2025-08", 39], ["2025-09", 42], ["2025-10", 135],
-  ["2025-11", 61], ["2025-12", 66], ["2026-01", 72], ["2026-02", 89], ["2026-03", 77],
-  ["2026-04", 172], ["2026-05", 195], ["2026-06", 125], ["2026-07", 161], ["2026-08", 161],
-  ["2026-09", 651], ["2026-10", 730], ["2026-11", 349],
 ];
