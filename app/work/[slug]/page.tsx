@@ -31,6 +31,7 @@ const phase: Record<string, string> = {
   "The design": "Decision",
   Proof: "Validation",
   "What it changed for users": "Outcome",
+  "What the client got": "Outcome",
   "Around it": "Related work",
   "Two more from the same codebase": "Related work",
 };

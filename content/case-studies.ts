@@ -27,6 +27,170 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "nexma-attendance",
+    kicker: "Domain engine · Scheduling · SaaS",
+    title: "An attendance engine that stays 30 days ahead",
+    product: "Nexma",
+    org: "Nexma · Canada",
+    period: "Apr 2026 – now",
+    role: "Backend engineer, delivering full-stack · #1 contributor on API and web",
+    summary:
+      "Nexma's teams clock in against contracts with shifts, work days and policies that keep changing. I built the engine that keeps every enrolled contract planned a month ahead, replans safely when anything changes, and never makes a clock-in wait.",
+    stack: ["NestJS (hexagonal)", "Prisma", "PostgreSQL", "MongoDB", "Redis + BullMQ", "Next.js 16"],
+    facts: [
+      { label: "My merged PRs, API + web", value: "401" },
+      { label: "Contributor rank", value: "#1 on both repos" },
+      { label: "Planning horizon", value: "30 days" },
+      { label: "Live", value: "nexma.org · Google Play" },
+    ],
+    sections: [
+      {
+        heading: "Context",
+        body: [
+          "Nexma is a work-management SaaS: organisations, positions, contracts, tasks, schedules, attendance and reports, on a web app and a mobile app. I joined as a backend engineer and took ownership of attendance, the part people touch every working day.",
+        ],
+      },
+      {
+        heading: "The problem",
+        body: [
+          "A clock-in has to be checked against what the person was planned to do that day. Computing the plan at clock-in time is slow and fragile. Computing it once goes stale the moment a manager edits a schedule, a work day or a policy.",
+        ],
+      },
+      {
+        heading: "The design",
+        body: [
+          "A horizon job keeps every enrolled contract planned 30 days ahead. Planning starts tomorrow, already covered days are skipped, so reruns are cheap. When a planning source changes, the database only accepts a plan redone from the first covered day, so the job republishes the sources, invalidates from that day with an expected revision, and plans again.",
+          "Every step carries an idempotency key derived from the contract, its revision and the last source change, so a retried job can never double-apply. One failing contract is logged and skipped; it never stops the others. The loop yields to authorization writers so planning never blocks someone changing permissions.",
+        ],
+        diagram: "horizon",
+        code: {
+          file: "attendance/application/attendance-horizon.service.ts",
+          lang: "ts",
+          source: `export const ATTENDANCE_HORIZON_DAYS = 30;
+
+const key = (step: string) =>
+  sha256(["horizon", step, contractId, revision, lastSourceChangeId]);
+
+if (target.sourcesChanged) {
+  fromDate = target.firstCoveredDate ?? tomorrow;
+  await publishPlanningSources({ key: key("sources"), contractId });
+  revision = await repository.invalidate({
+    key: key("invalidate"),
+    contractId,
+    expectedRevision: target.revision, // optimistic check
+    fromDate,
+  });
+}
+await materialize({ revision, from: fromDate, to: tomorrow + 29 days });`,
+        },
+      },
+      {
+        heading: "What it changed for users",
+        body: [],
+        list: [
+          "Clocking in on an enrolled contract never waits for its plan.",
+          "Web corrections apply as engine revisions, so enrolled contracts are corrected like any other.",
+          "The Pointages list pages by cursor with a live view, instead of loading everything.",
+          "Edits to approved work re-approve it under the editor, with one warning before saving.",
+        ],
+      },
+      {
+        heading: "Around it",
+        body: [
+          "Attendance is location-sensitive, so I treated privacy as a feature: check-ins are verified against site zones drawn as polygons, each session keeps an append-only location trail, positions are deleted after 90 days unless a legal hold applies, and every change to recorded work goes through an independent reviewer. Listings are cached in Redis and retired on every attendance change, and dashboards read the organisation's business day rather than UTC.",
+          "Roles and positions that can be retired while in use, by moving their holders, with an audit of who handed over which contracts and tasks. Bulk email invitations with per-recipient results. 100 MB uploads streamed to storage, with refusals that name the limit. Every refusal in the app says why and what to do next.",
+          "I have also written a release controller that rotates API traffic through health-checked slots, journals each phase and rolls back on failure, with online migrations that don't block live clock-ins. It is in review, not yet in production.",
+        ],
+      },
+    ],
+    stage: { label: "Production", detail: "The attendance engine is merged to main and runs on nexma.org and the Google Play app." },
+    open: [
+      "The slot-based release controller is still in review, not merged to main.",
+    ],
+    evidence: ["216 merged API PRs", "185 merged web PRs", "attendance-horizon.service.ts"],
+  },
+  {
+    slug: "maisoncurtis-payments",
+    kicker: "Payments · Postgres invariants · Client delivery",
+    title: "Live card payments for a salon in Belgium, with no double bookings",
+    product: "Maison Curtis",
+    org: "Poky Group · client in Charleroi, Belgium",
+    period: "Oct 2026 – now",
+    role: "Sole engineer: database, Edge Functions, two PWAs, CI",
+    summary:
+      "A barber in Charleroi wanted clients to book and pay a deposit online, in French, Dutch or English. I designed and delivered the platform alone in a month: 52 merged pull requests. Live Stripe payments, a database that refuses double bookings, and automatic refunds whenever a client pays for a slot they can no longer have.",
+    stack: ["Next.js", "Supabase / PostgreSQL", "Stripe (cards, Bancontact)", "Edge Functions (Deno)", "Turborepo", "pgTAP + Playwright"],
+    facts: [
+      { label: "Delivered", value: "52 PRs in 31 days" },
+      { label: "pgTAP assertions", value: "396" },
+      { label: "E2E + unit tests", value: "89 + 178" },
+      { label: "Payments", value: "Live Stripe" },
+    ],
+    sections: [
+      {
+        heading: "Context",
+        body: [
+          "Maison Curtis is the first tenant of a white-label booking platform I built for barbershops: a public site and client PWA, a Console PWA for the barber, and everything brand-specific kept in data. The client is in Belgium, so cards and Bancontact through Stripe, three languages, and functions hosted in Paris.",
+        ],
+      },
+      {
+        heading: "The problem",
+        body: [
+          "Two clients can pick the same chair at the same minute. A payment can succeed after the slot's hold expired. Stripe retries webhooks and can deliver them out of order. Any of these, handled in application code alone, ends with two people booked for one chair or a client charged for nothing.",
+        ],
+      },
+      {
+        heading: "The design",
+        body: [
+          "The rule lives in PostgreSQL, not in the app: an exclusion constraint makes overlapping active bookings for one barber impossible, whatever code path writes them. Choosing a time creates a short hold; only Stripe's signed webhook can confirm it.",
+          "Every webhook event is recorded by id in the same transaction that applies it, so a replay changes nothing. If a payment succeeds after its hold was lost, the booking is refunded automatically; refunds go out through a worker with one idempotency key per refund, so a retry never refunds twice.",
+        ],
+        code: {
+          file: "supabase/migrations/…_booking_schema.sql",
+          lang: "sql",
+          source: `create table public.bookings (
+  -- ...
+  constraint no_double_booking exclude using gist (
+    staff_id with =,   -- same barber
+    period   with &&   -- overlapping time
+  ) where (status in ('held', 'confirmed', 'completed'))
+);
+
+-- webhook: record the event and apply it in one transaction
+insert into public.stripe_events (id, type)
+values (p_id, p_type)
+on conflict (id) do nothing;   -- a replay is a no-op`,
+        },
+      },
+      {
+        heading: "Proof",
+        body: [],
+        list: [
+          "396 pgTAP assertions on the database: no double booking, row-level security, holds and payments, webhook ordering, scheduled jobs.",
+          "A card matrix in Stripe test mode: declined, insufficient funds, lost, stolen, expired, wrong CVC, processing error, 3-D Secure refused. Each keeps the hold and charges nothing.",
+          "Load and concurrency: 20 clients on one time get one hold; the same webhook sent 10 times at once confirms once; 40 simultaneous payments all go through.",
+          "That test found a real problem: Stripe rate-limited 12 of 40 requests. Safe calls now retry on 429 and 5xx, and 40 of 40 pass.",
+        ],
+      },
+      {
+        heading: "What the client got",
+        body: [],
+        list: [
+          "Online booking with live deposits, rescheduling up to 24 hours before, and automatic refunds when the salon cancels.",
+          "A Console for the barber with email-code sign-in and mandatory TOTP for the owner, agenda, team and schedule.",
+          "Push and email notifications, offline-tolerant PWAs, nightly encrypted database backups.",
+          "Public pages held to a 2-second LCP budget, checked with Lighthouse and axe in CI on every change.",
+        ],
+      },
+    ],
+    stage: { label: "Production", detail: "Live at maisoncurtis.com with real Stripe payments. The stress tests ran in Stripe test mode, against the same code and form." },
+    open: [
+      "The load and concurrency script runs locally before each payment release, not on every CI run.",
+      "Booking volumes and revenue belong to the client and are not published here.",
+    ],
+    evidence: ["PR #31 · Stripe webhook and refunds", "PR #47 · payment stress test", "52 merged PRs"],
+  },
+  {
     slug: "theluxar-auth-race",
     kicker: "Debugging · Auth · Fintech",
     title: "The flaky test that would have logged customers out",
@@ -38,8 +202,8 @@ export const caseStudies: CaseStudy[] = [
       "An end-to-end test failed now and then. Tracing it showed that a fast page navigation could make the server revoke a legitimate customer's session. TheLuxar is pre-launch, so this was caught in testing, before any customer could hit it. I fixed it with a grace window that accepts exactly one previous token, for ten seconds, and kept theft protection intact.",
     stack: ["NestJS on Fastify", "Redis", "Drizzle + PgBouncer", "Jest + Testcontainers", "Next.js"],
     facts: [
+      { label: "My merged PRs, solo", value: "130" },
       { label: "Backend modules", value: "15" },
-      { label: "Test files", value: "352" },
       { label: "Unit tests after the fix", value: "1,295 / 1,295" },
       { label: "E2E tests after the fix", value: "598 / 598, run twice" },
     ],
@@ -105,6 +269,7 @@ rotate(presented: string, next: string, now = new Date()): void {
         heading: "Two more from the same codebase",
         body: [
           "Rate limiting (PR #52). The global limiter stored counts in each instance's memory. Staging runs two or more Fly machines, so the real cap was about double the documented 100 requests a minute, and it reset on every deploy. I moved it onto the shared Redis connection. A new e2e test boots two app instances on one Redis and proves that exhausting the cap on one makes the other refuse its very first request. It fails open by design, because it is a flood backstop; OTP and uploads keep their own stricter limits.",
+          "Platform work around it, also mine: phone sign-in with OTP anti-pumping limits (a known SMS-fraud vector), Google sign-in linked to a phone identity, mandatory TOTP for admins, a media pipeline on Cloudflare R2, Images and Stream, Meilisearch search with a Redis catalogue cache and ETags, Sentry and Axiom with secret redaction, and a lint rule that stops one module from reading another's tables.",
           "Payments (PR #54). A provider-agnostic payment domain with a pawaPay connector for MTN MoMo and Orange Money, verified against the real pawaPay sandbox: success, every documented failure reason, a stuck payment with no callback, and the 15-minute reconciler expiry. Failure reasons come back as stable codes, never vendor text, so the apps can translate them. 630 tests across 68 suites passed locally.",
         ],
       },
@@ -115,88 +280,6 @@ rotate(presented: string, next: string, now = new Date()): void {
       "The shared rate limit still needs a live check on two staging machines (listed as open in PR #52).",
     ],
     evidence: ["PR #51 · grace window", "PR #52 · Redis rate limit", "PR #54 · payments"],
-  },
-  {
-    slug: "nexma-attendance",
-    kicker: "Domain engine · Scheduling · SaaS",
-    title: "An attendance engine that stays 30 days ahead",
-    product: "Nexma",
-    org: "Nexma · Canada",
-    period: "Apr 2026 – now",
-    role: "Backend engineer, delivering full-stack · top committer",
-    summary:
-      "Nexma's teams clock in against contracts with shifts, work days and policies that keep changing. I built the engine that keeps every enrolled contract planned a month ahead, replans safely when anything changes, and never makes a clock-in wait.",
-    stack: ["NestJS (hexagonal)", "Prisma", "PostgreSQL", "MongoDB", "Redis + BullMQ", "Next.js 16"],
-    facts: [
-      { label: "Merged PRs on the API", value: "95" },
-      { label: "Attendance module files", value: "416" },
-      { label: "Planning horizon", value: "30 days" },
-      { label: "Live", value: "nexma.org · Google Play" },
-    ],
-    sections: [
-      {
-        heading: "Context",
-        body: [
-          "Nexma is a work-management SaaS: organisations, positions, contracts, tasks, schedules, attendance and reports, on a web app and a mobile app. I joined as a backend engineer and took ownership of attendance, the part people touch every working day.",
-        ],
-      },
-      {
-        heading: "The problem",
-        body: [
-          "A clock-in has to be checked against what the person was planned to do that day. Computing the plan at clock-in time is slow and fragile. Computing it once goes stale the moment a manager edits a schedule, a work day or a policy.",
-        ],
-      },
-      {
-        heading: "The design",
-        body: [
-          "A horizon job keeps every enrolled contract planned 30 days ahead. Planning starts tomorrow, already covered days are skipped, so reruns are cheap. When a planning source changes, the database only accepts a plan redone from the first covered day, so the job republishes the sources, invalidates from that day with an expected revision, and plans again.",
-          "Every step carries an idempotency key derived from the contract, its revision and the last source change, so a retried job can never double-apply. One failing contract is logged and skipped; it never stops the others. The loop yields to authorization writers so planning never blocks someone changing permissions.",
-        ],
-        diagram: "horizon",
-        code: {
-          file: "attendance/application/attendance-horizon.service.ts",
-          lang: "ts",
-          source: `export const ATTENDANCE_HORIZON_DAYS = 30;
-
-const key = (step: string) =>
-  sha256(["horizon", step, contractId, revision, lastSourceChangeId]);
-
-if (target.sourcesChanged) {
-  fromDate = target.firstCoveredDate ?? tomorrow;
-  await publishPlanningSources({ key: key("sources"), contractId });
-  revision = await repository.invalidate({
-    key: key("invalidate"),
-    contractId,
-    expectedRevision: target.revision, // optimistic check
-    fromDate,
-  });
-}
-await materialize({ revision, from: fromDate, to: tomorrow + 29 days });`,
-        },
-      },
-      {
-        heading: "What it changed for users",
-        body: [],
-        list: [
-          "Clocking in on an enrolled contract never waits for its plan.",
-          "Web corrections apply as engine revisions, so enrolled contracts are corrected like any other.",
-          "The Pointages list pages by cursor with a live view, instead of loading everything.",
-          "Edits to approved work re-approve it under the editor, with one warning before saving.",
-        ],
-      },
-      {
-        heading: "Around it",
-        body: [
-          "Roles and positions that can be retired while in use, by moving their holders, with an audit of who handed over which contracts and tasks. Bulk email invitations with per-recipient results. 100 MB uploads streamed to storage, with refusals that name the limit. Every refusal in the app says why and what to do next.",
-          "I have also written a release controller that rotates API traffic through health-checked slots, journals each phase and rolls back on failure, with online migrations that don't block live clock-ins. It is in review, not yet in production.",
-        ],
-      },
-    ],
-    stage: { label: "Production", detail: "The attendance engine is merged to main and runs on nexma.org and the Google Play app." },
-    open: [
-      "The slot-based release controller is still in review, not merged to main.",
-    ],
-    evidence: ["95 merged API PRs", "attendance-horizon.service.ts"],
   },
   {
     slug: "pikdrive-idempotency",

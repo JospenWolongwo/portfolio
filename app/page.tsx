@@ -97,7 +97,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <Eyebrow n="01">Selected work</Eyebrow>
           <h2 className="mt-4 max-w-2xl font-display text-[clamp(2rem,4.5vw,3.2rem)] leading-[1.05]">
-            Three problems, the decisions I made, and the proof.
+            Four problems, the decisions I made, and the proof.
           </h2>
           <div className="mt-12 grid gap-5">
             {caseStudies.map((c, i) => (

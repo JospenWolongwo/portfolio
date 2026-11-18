@@ -95,24 +95,24 @@ const doc = new Document({
       ] }),
 
       new Paragraph({ style: "Summary", children: [
-        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, currently working remotely for Nexma, a Canadian SaaS company. I build and run products end to end, from database to mobile release: six are live, three on Google Play. My focus is systems that must stay correct in production: payments (Stripe and mobile money), real-time features, mobile releases and AWS."),
+        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, working remotely for Nexma, a Canadian SaaS company, and for a client in Belgium. I build and run products end to end, from database to mobile release: six are live, three on Google Play. My focus is systems that must stay correct in production: payments (Stripe and mobile money), real-time features, mobile releases and AWS."),
       ] }),
 
       section("Experience"),
 
       role("Nexma", "Backend Engineer, delivering full-stack", "Apr 2026 – Present"),
       context([new TextRun("Remote, Canada  ·  "), link("nexma.org", "https://nexma.org"), new TextRun(", work-management SaaS on web and Google Play  ·  NestJS, PostgreSQL, Next.js")]),
-      bullet("Top committer on the API and web app, with ", b("95 merged pull requests"), " on the API."),
+      bullet(b("#1 contributor"), " on the API and web app: ", b("401 merged pull requests"), " since April 2026."),
       bullet("Designed the attendance engine: every contract planned ", b("30 days ahead"), ", replanned safely when a schedule changes, with revision checks and idempotency keys so retries never apply twice."),
-      bullet("Built roles and positions with audited hand-overs, bulk invitations and streamed uploads up to 100 MB."),
+      bullet("Built location-aware attendance with privacy by design: polygon site zones, append-only location trails, 90-day retention with legal holds, independent review of every change."),
 
       role("Poky Group SAS", "Co-founder, General Director and CTO", "2025 – Present"),
       context([new TextRun("Product company I co-founded. I lead engineering and write most of the code.")]),
+      bullet(b("Maison Curtis"), " (", link("maisoncurtis.com", "https://maisoncurtis.com"), ", client in Belgium): sole engineer, delivered in a month (52 PRs). Live Stripe payments; a PostgreSQL constraint makes double bookings impossible; replay-safe webhook with automatic refunds."),
       bullet(b("PikDrive"), " (", link("pikdrive.com", "https://pikdrive.com"), "): sole engineer on ride-sharing with mobile-money payments (MTN MoMo and Orange Money via PawaPay), driver payouts and refunds. Idempotent booking creation in PostgreSQL, rolling out from development."),
       bullet(b("TheLouk"), " (", link("thelouk.com", "https://thelouk.com"), ", Google Play): core mobile engineer on Expo and React Native. Push notifications, realtime chat and EAS release pipeline."),
-      bullet(b("TheLuxar"), " (staging, pre-launch): commerce and delivery platform on NestJS, Fastify, Redis and BullMQ, with 1,295 unit and 598 end-to-end tests. Fixed a token-rotation race that would have logged customers out."),
-      bullet(b("Maison Curtis"), " (", link("maisoncurtis.com", "https://maisoncurtis.com"), "): sole engineer. Stripe deposits with a signed, replay-safe webhook and automatic refunds, stress-tested under concurrency."),
       bullet(b("HopiMed"), " (", link("hopimed237.site", "https://hopimed237.site"), "): sole engineer. AI assistant grounded in live data via OpenAI tool calling; prescription reading that flags doubt instead of guessing."),
+      bullet(b("TheLuxar"), " (staging, pre-launch): 130 merged PRs, solo. Commerce and delivery platform on NestJS, Fastify, Redis and BullMQ. Fixed a token-rotation race that would have logged customers out."),
 
       role("Contract work", null, "Mar 2026 – Present"),
       bullet(b("Gajo Livestock"), " (agritech, Google Play): own the React admin console, 79 of 85 commits. Subscription plans, AI usage quotas, and Playwright end-to-end tests in GitLab CI."),

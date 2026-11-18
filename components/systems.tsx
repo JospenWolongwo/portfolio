@@ -36,7 +36,7 @@ function Shot({ p }: { p: Product }) {
 // The three flagship products have full case studies above; this grid holds the rest.
 export function Systems() {
   return (
-    <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-12 grid gap-5 sm:grid-cols-2">
       {products.filter((p) => !p.caseStudy).map((p) => (
         <article key={p.slug} className="flex flex-col rounded-xl border border-rule bg-card">
           <Shot p={p} />
