@@ -66,9 +66,9 @@ const doc = new Document({
           tabStops: [{ type: TabStopType.RIGHT, position: RIGHT }] } },
       { id: "Context", name: "CV Context", run: { size: 18, italics: true, color: GREY },
         paragraph: { spacing: { before: 10, after: 30 }, keepNext: true } },
-      { id: "Bullet", name: "CV Bullet", run: { size: 20 },
+      { id: "Bullet", name: "CV Bullet", run: { size: 19 },
         paragraph: { spacing: { before: 0, after: 30, line: 252 } } },
-      { id: "Skill", name: "CV Skill", run: { size: 20 },
+      { id: "Skill", name: "CV Skill", run: { size: 19 },
         paragraph: { spacing: { before: 0, after: 30 }, indent: { left: 0 } } },
     ],
   },
@@ -84,7 +84,7 @@ const doc = new Document({
     children: [
       new Paragraph({ style: "Name", children: [new TextRun("Jospen Wolongwo")] }),
       new Paragraph({ style: "Headline", children: [
-        new TextRun({ text: "Full-Stack Engineer", bold: true }),
+        new TextRun({ text: "Full-Stack Product Engineer (TypeScript)", bold: true }),
         new TextRun("  ·  Remote from Cameroon (UTC+1)"),
       ] }),
       new Paragraph({ style: "Contact", children: [
@@ -95,7 +95,7 @@ const doc = new Document({
       ] }),
 
       new Paragraph({ style: "Summary", children: [
-        new TextRun("Full-stack engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, currently working remotely for Nexma, a Canadian SaaS company. I build and run products end to end, from database to mobile release: six are live, three on Google Play. Most of my work is mobile-money payments and systems that stay correct on unreliable networks."),
+        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, currently working remotely for Nexma, a Canadian SaaS company. I build and run products end to end, from database to mobile release: six are live, three on Google Play. My focus is systems that must stay correct in production: payments (Stripe and mobile money), real-time features, mobile releases and AWS."),
       ] }),
 
       section("Experience"),
@@ -108,14 +108,15 @@ const doc = new Document({
 
       role("Poky Group SAS", "Co-founder, General Director and CTO", "2025 – Present"),
       context([new TextRun("Product company I co-founded. I lead engineering and write most of the code.")]),
-      bullet(b("PikDrive"), " (", link("pikdrive.com", "https://pikdrive.com"), "): sole engineer on a ride-sharing platform with mobile-money payments (PawaPay, MTN MoMo, Orange Money), driver payouts and refunds. Made bookings idempotent in PostgreSQL so a retried request can never double-book."),
+      bullet(b("PikDrive"), " (", link("pikdrive.com", "https://pikdrive.com"), "): sole engineer on ride-sharing with mobile-money payments (MTN MoMo and Orange Money via PawaPay), driver payouts and refunds. Idempotent booking creation in PostgreSQL, rolling out from development."),
       bullet(b("TheLouk"), " (", link("thelouk.com", "https://thelouk.com"), ", Google Play): core mobile engineer on Expo and React Native. Push notifications, realtime chat and EAS release pipeline."),
-      bullet(b("TheLuxar"), " (in build): commerce and delivery platform on NestJS, Fastify, Redis and BullMQ. 15 modules with 1,295 unit and 598 end-to-end tests. Traced a flaky test to a token-rotation race that was logging real users out, and fixed it."),
-      bullet(b("Maison Curtis"), " (", link("maisoncurtis.com", "https://maisoncurtis.com"), ") and ", b("HopiMed"), ": sole engineer on a white-label barber booking app and a pharmacy finder that reads prescriptions with AI."),
+      bullet(b("TheLuxar"), " (staging, pre-launch): commerce and delivery platform on NestJS, Fastify, Redis and BullMQ, with 1,295 unit and 598 end-to-end tests. Fixed a token-rotation race that would have logged customers out."),
+      bullet(b("Maison Curtis"), " (", link("maisoncurtis.com", "https://maisoncurtis.com"), "): sole engineer. Stripe deposits with a signed, replay-safe webhook and automatic refunds, stress-tested under concurrency."),
+      bullet(b("HopiMed"), " (", link("hopimed237.site", "https://hopimed237.site"), "): sole engineer. AI assistant grounded in live data via OpenAI tool calling; prescription reading that flags doubt instead of guessing."),
 
       role("Contract work", null, "Mar 2026 – Present"),
       bullet(b("Gajo Livestock"), " (agritech, Google Play): own the React admin console, 79 of 85 commits. Subscription plans, AI usage quotas, and Playwright end-to-end tests in GitLab CI."),
-      bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): built an independent AWS environment with CDK for 13 apps: VPC, Aurora, Valkey, ECR and three ECS clusters. All 8 services healthy at hand-over, with ADRs, runbooks and a risk register."),
+      bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): built an AWS environment with CDK for 13 apps (VPC, Aurora, Valkey, ECR, three ECS clusters). All 8 services healthy at hand-over, with ADRs and runbooks."),
 
       role("Kola Group", "Software Developer", "Oct 2025 – Jul 2026"),
       bullet("Built payment-aggregator services for fintech clients: pay-ins, payouts, mass payments and other money-movement operations."),
@@ -131,7 +132,8 @@ const doc = new Document({
       skill("Backend", "NestJS, Fastify, Prisma, Drizzle, Redis, BullMQ, Supabase, Laravel"),
       skill("Frontend and mobile", "Next.js, React, Angular, React Native with Expo, Tailwind CSS"),
       skill("Data and cloud", "PostgreSQL, MongoDB, AWS (CDK, ECS, Aurora), Vercel, Fly.io, Firebase"),
-      skill("Delivery", "GitHub Actions, GitLab CI, Playwright, Testcontainers, mobile-money integrations"),
+      skill("Delivery", "GitHub Actions, GitLab CI, Playwright, Testcontainers, pgTAP"),
+      skill("Payments and AI", "Stripe, PawaPay, MTN MoMo, Orange Money; OpenAI tool calling and vision"),
 
       skill("Spoken", "English and French, professional working proficiency"),
 

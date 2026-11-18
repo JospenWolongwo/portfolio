@@ -22,7 +22,7 @@ function Shot({ p }: { p: Product }) {
           <span className="ml-2 truncate font-mono text-[10px] text-muted">{p.url?.replace("https://", "")}</span>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.shot} alt={`${p.name} home page`} loading="lazy" className="aspect-[16/10] w-full object-cover object-top" />
+        <img src={p.shot} alt={`${p.name}, screenshot of the live site`} loading="lazy" className="aspect-[16/10] w-full object-cover object-top" />
       </div>
     );
   }
@@ -33,10 +33,11 @@ function Shot({ p }: { p: Product }) {
   );
 }
 
+// The three flagship products have full case studies above; this grid holds the rest.
 export function Systems() {
   return (
     <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {products.map((p) => (
+      {products.filter((p) => !p.caseStudy).map((p) => (
         <article key={p.slug} className="flex flex-col rounded-xl border border-rule bg-card">
           <Shot p={p} />
           <div className="flex flex-1 flex-col p-5">

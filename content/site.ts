@@ -4,10 +4,10 @@
 
 export const profile = {
   name: "Jospen Wolongwo",
-  role: "Full-stack engineer",
+  role: "Full-stack product engineer",
   headline: "I ship products people use, and keep them running.",
   intro:
-    "Full-stack engineer working remotely for Nexma, a Canadian SaaS company, and co-founder of Poky Group. I build payments, mobile apps, real-time features and the releases that carry them, for the networks and mobile wallets of Central Africa.",
+    "TypeScript engineer who owns products end to end: data model, API, web and mobile clients, CI and cloud. I work remotely for Nexma, a Canadian SaaS company, and co-founded Poky Group. My focus is systems that must stay correct in production: payments, real-time features, mobile releases and AWS.",
   location: "Cameroon · UTC+1",
   availability: "Open to remote roles",
   email: "jospenwolongwo@gmail.com",
@@ -81,9 +81,9 @@ export const products: Product[] = [
     name: "Maison Curtis",
     url: "https://maisoncurtis.com",
     org: "Poky Group",
-    what: "White-label barber booking: client PWA and barber console.",
-    role: "Sole engineer",
-    stack: ["Next.js", "Supabase", "Turborepo", "pgTAP"],
+    what: "White-label barber booking: client PWA, barber console and Stripe deposits with automatic refunds.",
+    role: "Sole engineer · Stripe payments, webhook, refunds",
+    stack: ["Next.js", "Supabase", "Stripe", "Turborepo", "pgTAP"],
     status: "live",
     shot: "/shots/maisoncurtis-desktop.jpg",
     metric: { label: "Appointments booked", value: null },
@@ -95,7 +95,7 @@ export const products: Product[] = [
     org: "Poky Group",
     what: "On-duty pharmacies and hospitals, with an AI assistant that reads prescriptions.",
     role: "Sole engineer · built the AI features",
-    stack: ["Angular", "Supabase Edge Functions", "OpenAI", "PWA"],
+    stack: ["Angular", "Supabase Edge Functions", "OpenAI tools + vision", "PWA"],
     status: "live",
     shot: "/shots/hopimed-desktop.jpg",
     metric: { label: "Pharmacies listed", value: null },
@@ -151,7 +151,7 @@ export const experience: Role[] = [
     period: "2025 – now",
     points: [
       "Lead engineering across five products: PikDrive, TheLouk, HopiMed, Maison Curtis and TheLuxar. Sole engineer on four.",
-      "Built mobile-money payments (PawaPay, MTN MoMo, Orange Money) with refunds, payouts and reconciliation.",
+      "Built payments end to end: mobile money (PawaPay, MTN MoMo, Orange Money) with payouts and reconciliation on PikDrive, and Stripe deposits with a signed webhook and automatic refunds on Maison Curtis.",
       "Set the release standard: CI gates on migrations, Play Store releases through EAS, OTA updates blocked when native code changes.",
     ],
   },
@@ -212,7 +212,7 @@ export const principles = [
   },
   {
     title: "Find the real cause, then fix it narrowly.",
-    body: "A flaky test led to a token race that logged real users out. The fix accepts exactly one token generation, for ten seconds.",
+    body: "A flaky test on staging led to a token race that would have logged customers out. The fix accepts exactly one token generation, for ten seconds.",
     proof: "TheLuxar · PR #51",
     href: "/work/theluxar-auth-race/",
   },

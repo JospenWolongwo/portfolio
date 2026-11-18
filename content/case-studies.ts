@@ -20,6 +20,7 @@ export type CaseStudy = {
   stack: string[];
   facts: { label: string; value: string }[];
   sections: Section[];
+  stage: { label: string; detail: string };
   open: string[];
   evidence: string[];
 };
@@ -28,13 +29,13 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "theluxar-auth-race",
     kicker: "Debugging · Auth · Fintech",
-    title: "The flaky test that was really logging customers out",
+    title: "The flaky test that would have logged customers out",
     product: "TheLuxar",
     org: "Poky Group",
     period: "Sep 2026 – now",
     role: "Sole engineer: backend, three frontends, CI",
     summary:
-      "An end-to-end test failed now and then. Tracing it showed that a fast page navigation could make the server revoke a real customer's session. I fixed it with a grace window that accepts exactly one previous token, for ten seconds, and kept theft protection intact.",
+      "An end-to-end test failed now and then. Tracing it showed that a fast page navigation could make the server revoke a legitimate customer's session. TheLuxar is pre-launch, so this was caught in testing, before any customer could hit it. I fixed it with a grace window that accepts exactly one previous token, for ten seconds, and kept theft protection intact.",
     stack: ["NestJS on Fastify", "Redis", "Drizzle + PgBouncer", "Jest + Testcontainers", "Next.js"],
     facts: [
       { label: "Backend modules", value: "15" },
@@ -59,7 +60,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The real cause",
         body: [
-          "The shop refreshes the session on every full page load. When a customer navigates while the previous page's refresh request is still in flight, the browser aborts that request. But the server may already have rotated the token. The browser never receives the new one, so its next refresh presents the old token, which looks exactly like a stolen token being replayed. The server revokes the family and a real customer is logged out.",
+          "The shop refreshes the session on every full page load. When a customer navigates while the previous page's refresh request is still in flight, the browser aborts that request. But the server may already have rotated the token. The browser never receives the new one, so its next refresh presents the old token, which looks exactly like a stolen token being replayed. The server revokes the family and a legitimate customer is logged out.",
         ],
         diagram: "token-race",
       },
@@ -108,6 +109,7 @@ rotate(presented: string, next: string, now = new Date()): void {
         ],
       },
     ],
+    stage: { label: "Staging · pre-launch", detail: "Reproduced and fixed in the local and CI test suites. TheLuxar has no production traffic yet." },
     open: [
       "TheLuxar is not launched yet; it runs on staging on Fly.io.",
       "The shared rate limit still needs a live check on two staging machines (listed as open in PR #52).",
@@ -190,6 +192,7 @@ await materialize({ revision, from: fromDate, to: tomorrow + 29 days });`,
         ],
       },
     ],
+    stage: { label: "Production", detail: "The attendance engine is merged to main and runs on nexma.org and the Google Play app." },
     open: [
       "The slot-based release controller is still in review, not merged to main.",
     ],
@@ -265,6 +268,7 @@ SELECT * INTO v_result FROM reserve_ride_seats(...); -- legacy policy, untouched
         ],
       },
     ],
+    stage: { label: "Development database", detail: "The code is merged to the develop branch. The migration runs on the development database; UAT and production are deliberately unchanged so far." },
     open: [
       "The idempotency migration is on the development database; UAT and production were deliberately not changed yet.",
       "The rest of the versioned endpoint matrix (payments, chat, driver) still needs the same contract tests.",
