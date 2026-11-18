@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "check:live": "node scripts/check-live.mjs",
-    "build": "next build",
+    "build": "next build && node scripts/set-lang.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "check": "pnpm typecheck && pnpm lint"
