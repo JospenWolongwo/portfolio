@@ -7,7 +7,7 @@ export const profile = {
   role: "Full-stack product engineer",
   headline: "I ship products people use, and keep them running.",
   intro:
-    "TypeScript engineer who owns products end to end: data model, API, web and mobile clients, CI and cloud. I have worked remotely across borders since 2023, for companies in Germany and Canada and a client in Belgium, and co-founded Poky Group. My focus is systems that must stay correct in production: payments, real-time features, mobile releases and AWS.",
+    "TypeScript engineer who owns products end to end: data model, API, web and mobile clients, CI and cloud. Since 2023 I have worked across borders: remotely for a company in Germany, in a distributed team across Canada and Cameroon, and for a client in Belgium. I co-founded Poky Group. My focus is systems that must stay correct in production: payments, real-time features, mobile releases and AWS.",
   location: "Cameroon · UTC+1",
   availability: "Open to remote roles worldwide",
   email: "jospenwolongwo@gmail.com",
@@ -139,6 +139,7 @@ export const products: Product[] = [
 
 export type Role = {
   org: string;
+  url?: string;
   title: string | null;
   period: string;
   note?: string;
@@ -148,6 +149,7 @@ export type Role = {
 export const experience: Role[] = [
   {
     org: "Poky Group SAS",
+    url: "https://pokygroup.com",
     title: "Co-founder & General Director · CTO",
     period: "Dec 2024 – now",
     points: [
@@ -157,7 +159,8 @@ export const experience: Role[] = [
     ],
   },
   {
-    org: "Nexma · Canada (remote)",
+    org: "Nexma · Canada · hybrid, distributed team",
+    url: "https://nexma.org",
     title: "Backend Engineer (delivering full-stack)",
     period: "Apr 2026 – now",
     points: [
@@ -169,6 +172,7 @@ export const experience: Role[] = [
   },
   {
     org: "Gajo Livestock",
+    url: "https://gajolivestock.com",
     title: "Frontend Engineer · contract",
     period: "Mar 2026 – now",
     points: [
@@ -187,18 +191,21 @@ export const experience: Role[] = [
   },
   {
     org: "Kola Group",
+    url: "https://kolagroup.io",
     title: "Software Developer",
     period: "Oct 2025 – Jul 2026",
     points: ["Built payment-aggregator services for fintech clients: pay-ins, payouts, mass payments and other money-movement operations."],
   },
   {
     org: "Hello Computing · Germany (remote)",
+    url: "https://hellocomputing.de",
     title: "Junior Full-stack Developer",
     period: "Nov 2023 – Oct 2025",
     points: ["Built an e-commerce store and a digital business card with QR scanning, using NestJS, Angular, Redis and SCSS."],
   },
   {
     org: "CIA Consulting · Yaoundé",
+    url: "https://cia-service.com",
     title: "Web Developer Intern",
     period: "May – Nov 2023",
     points: ["First professional role: developed client web applications with Laravel and React."],

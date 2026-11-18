@@ -194,7 +194,13 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-[19px] font-semibold tracking-tight">
-                    {r.org}
+                    {r.url ? (
+                      <a href={r.url} className="underline decoration-rule underline-offset-4 hover:text-signal">
+                        {r.org}
+                      </a>
+                    ) : (
+                      r.org
+                    )}
                     {r.title && <span className="font-normal text-muted"> · {r.title}</span>}
                   </h3>
                   {r.note && <p className="mt-1 font-mono text-[11.5px] text-muted">{r.note}</p>}
