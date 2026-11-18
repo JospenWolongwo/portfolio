@@ -41,6 +41,8 @@ const bullet = (...runs) =>
     children: runs.map((r) => (typeof r === "string" ? new TextRun(r) : r)),
   });
 const b = (t) => new TextRun({ text: t, bold: true });
+const plain = (...runs) =>
+  new Paragraph({ style: "Skill", children: runs.map((r) => (typeof r === "string" ? new TextRun(r) : r)) });
 const skill = (k, v) =>
   new Paragraph({ style: "Skill", children: [new TextRun({ text: k, bold: true }), new TextRun({ children: [new Tab(), v] })] });
 
@@ -63,7 +65,7 @@ const doc = new Document({
       { id: "Summary", name: "CV Summary", run: { size: 21 },
         paragraph: { spacing: { before: 170, after: 0, line: 268 } } },
       { id: "Section", name: "CV Section", run: { font: HEAD, size: 24, color: INK },
-        paragraph: { spacing: { before: 190, after: 90 }, keepNext: true,
+        paragraph: { spacing: { before: 175, after: 85 }, keepNext: true,
           border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: "BFBFBF", space: 3 } } } },
       { id: "Role", name: "CV Role", run: { size: 22 },
         paragraph: { spacing: { before: 120, after: 0 }, keepNext: true,
@@ -85,7 +87,7 @@ const doc = new Document({
     }],
   },
   sections: [{
-    properties: { page: { size: { width: W, height: 16838 }, margin: { top: 760, bottom: 620, left: M, right: M } } },
+    properties: { page: { size: { width: W, height: 16838 }, margin: { top: 700, bottom: 560, left: M, right: M } } },
     children: [
       new Paragraph({ style: "Name", children: [new TextRun("Jospen Wolongwo")] }),
       new Paragraph({ style: "Headline", children: [
@@ -132,20 +134,24 @@ const doc = new Document({
       role("CIA Consulting, Yaoundé", "Stagiaire développeur web", "mai 2023 – nov. 2023", "https://cia-service.com"),
       bullet("Premier poste : développement d'applications web pour des clients, en Laravel et React."),
 
-      section("Compétences, langues et centres d'intérêt"),
+      section("Compétences"),
       skill("Programmation", "TypeScript, JavaScript, SQL, PHP"),
       skill("Backend et données", "NestJS, Fastify, Prisma, Drizzle, PostgreSQL, Redis, BullMQ, Supabase, Laravel"),
       skill("Web et mobile", "Next.js, React, Angular, React Native (Expo), Tailwind CSS"),
       skill("Cloud et livraison", "AWS (CDK, ECS, Aurora), Vercel, Fly.io, Firebase, GitHub Actions, GitLab CI, Playwright"),
       skill("Paiements et IA", "Stripe, PawaPay, MTN MoMo, Orange Money, outils et vision OpenAI"),
-      skill("Langues", "Français et anglais, niveau professionnel dans les deux langues"),
-      skill("Centres d'intérêt", "Fintech et inclusion financière en Afrique · création de produits · musculation et natation"),
 
       section("Formation"),
       role("Licence professionnelle, Génie informatique, option Génie logiciel", null, "2023"),
       context([new TextRun("Université de Dschang, IUT Fotso Victor (IUEs/INSAM)  ·  Mention : A (Excellent)")]),
       role("Higher National Diploma (HND), Génie informatique, option Génie logiciel", null, "2022"),
       context([new TextRun("Ministère de l'Enseignement supérieur du Cameroun  ·  Mention : B+")]),
+
+      section("Langues"),
+      plain(b("Français"), " · niveau professionnel      ", b("Anglais"), " · niveau professionnel"),
+
+      section("Centres d'intérêt"),
+      plain("Fintech et inclusion financière en Afrique  ·  création de produits  ·  musculation et natation"),
     ],
   }],
 });

@@ -41,6 +41,8 @@ const bullet = (...runs) =>
     children: runs.map((r) => (typeof r === "string" ? new TextRun(r) : r)),
   });
 const b = (t) => new TextRun({ text: t, bold: true });
+const plain = (...runs) =>
+  new Paragraph({ style: "Skill", children: runs.map((r) => (typeof r === "string" ? new TextRun(r) : r)) });
 const skill = (k, v) =>
   new Paragraph({ style: "Skill", children: [new TextRun({ text: k, bold: true }), new TextRun({ children: [new Tab(), v] })] });
 
@@ -63,7 +65,7 @@ const doc = new Document({
       { id: "Summary", name: "CV Summary", run: { size: 21 },
         paragraph: { spacing: { before: 170, after: 0, line: 268 } } },
       { id: "Section", name: "CV Section", run: { font: HEAD, size: 24, color: INK },
-        paragraph: { spacing: { before: 190, after: 90 }, keepNext: true,
+        paragraph: { spacing: { before: 175, after: 85 }, keepNext: true,
           border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: "BFBFBF", space: 3 } } } },
       { id: "Role", name: "CV Role", run: { size: 22 },
         paragraph: { spacing: { before: 120, after: 0 }, keepNext: true,
@@ -85,7 +87,7 @@ const doc = new Document({
     }],
   },
   sections: [{
-    properties: { page: { size: { width: W, height: 16838 }, margin: { top: 760, bottom: 620, left: M, right: M } } },
+    properties: { page: { size: { width: W, height: 16838 }, margin: { top: 700, bottom: 560, left: M, right: M } } },
     children: [
       new Paragraph({ style: "Name", children: [new TextRun("Jospen Wolongwo")] }),
       new Paragraph({ style: "Headline", children: [
@@ -120,7 +122,7 @@ const doc = new Document({
       bullet(b("TheLuxar"), " (staging, pre-launch): 130 merged PRs, solo, on NestJS, Redis and BullMQ; fixed an auth race."),
 
       role("Contract work", null, "Mar 2026 – Present"),
-      bullet(b("Gajo Livestock"), " (agritech, Google Play): led the landing page and admin console; built the web marketplace flow, catalogue to paid order."),
+      bullet(b("Gajo Livestock"), " (agritech, Google Play): led the landing page and admin console; built the web marketplace flow."),
       bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): 13-app AWS environment in CDK, all 8 services healthy."),
 
       role("Kola Group", "Software Developer", "Oct 2025 – Jul 2026", "https://kolagroup.io"),
@@ -132,20 +134,24 @@ const doc = new Document({
       role("CIA Consulting, Yaoundé", "Web Developer Intern", "May 2023 – Nov 2023", "https://cia-service.com"),
       bullet("First professional role: developed client web applications with Laravel and React."),
 
-      section("Skills, languages and interests"),
+      section("Skills"),
       skill("Programming", "TypeScript, JavaScript, SQL, PHP"),
       skill("Backend and data", "NestJS, Fastify, Prisma, Drizzle, PostgreSQL, Redis, BullMQ, Supabase, Laravel"),
       skill("Web and mobile", "Next.js, React, Angular, React Native (Expo), Tailwind CSS"),
       skill("Cloud and delivery", "AWS (CDK, ECS, Aurora), Vercel, Fly.io, Firebase, GitHub Actions, GitLab CI, Playwright"),
       skill("Payments and AI", "Stripe, PawaPay, MTN MoMo, Orange Money, OpenAI tools and vision"),
-      skill("Languages", "English and French, both at professional working proficiency"),
-      skill("Interests", "Fintech and financial inclusion in Africa · building products · fitness and swimming"),
 
       section("Education"),
       role("Professional Bachelor's (Licence Professionnelle), Computer Engineering, Software Engineering option", null, "2023"),
       context([new TextRun("University of Dschang, Fotso Victor Institute of Technology (IUEs/INSAM)  ·  Grade: A (Excellent)")]),
       role("Higher National Diploma (HND), Computer Engineering, Software Engineering option", null, "2022"),
       context([new TextRun("Cameroon Ministry of Higher Education  ·  Grade: B+")]),
+
+      section("Languages"),
+      plain(b("English"), " · professional working proficiency      ", b("French"), " · professional working proficiency"),
+
+      section("Interests"),
+      plain("Fintech and financial inclusion in Africa  ·  building products  ·  fitness training and swimming"),
     ],
   }],
 });
