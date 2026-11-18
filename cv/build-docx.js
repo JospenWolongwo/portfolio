@@ -111,7 +111,7 @@ const doc = new Document({
       bullet("Designed the attendance engine: every contract planned 30 days ahead, replanned safely when a schedule changes, with revision checks and idempotency keys so retries never apply twice."),
       bullet("Built location-aware attendance with privacy by design: polygon site zones, append-only location trails, 90-day retention with legal holds, independent review of every change."),
 
-      role("Poky Group SAS", "Co-founder, General Director and CTO", "Dec 2024 – Present", "https://pokygroup.com"),
+      role("Poky Group SAS", "Co-founder and CTO", "Dec 2024 – Present", "https://pokygroup.com"),
       context([new TextRun("Product company I co-founded. I lead engineering and write most of the code.")]),
       bullet(b("Maison Curtis"), " (", link("maisoncurtis.com", "https://maisoncurtis.com"), ", client in Belgium): sole engineer, delivered in a month (52 PRs). Live Stripe payments; a PostgreSQL constraint makes double bookings impossible; replay-safe webhook with automatic refunds."),
       bullet(b("PikDrive"), " (", link("pikdrive.com", "https://pikdrive.com"), "): sole engineer on ride-sharing with mobile-money payments (MTN MoMo, Orange Money via PawaPay), driver payouts and refunds. Idempotent booking API for the upcoming mobile app."),

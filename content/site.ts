@@ -150,7 +150,7 @@ export const experience: Role[] = [
   {
     org: "Poky Group SAS",
     url: "https://pokygroup.com",
-    title: "Co-founder & General Director · CTO",
+    title: "Co-founder & CTO",
     period: "Dec 2024 – now",
     points: [
       "Lead engineering across five products: PikDrive, TheLouk, HopiMed, Maison Curtis and TheLuxar. Sole engineer on four, including Maison Curtis for a client in Belgium, delivered in a month.",
