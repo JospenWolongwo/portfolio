@@ -97,7 +97,7 @@ const doc = new Document({
       ] }),
 
       new Paragraph({ style: "Summary", children: [
-        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, already working remotely across borders, for Nexma in Canada and a client in Belgium. I build and run products end to end, from database to mobile release: six are live, three on Google Play. My focus is systems that must stay correct in production: Stripe and mobile-money payments, real-time features and AWS."),
+        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, working remotely across borders since 2023: for companies in Germany and Canada, and a client in Belgium. I build and run products end to end, from database to mobile release: six are live, three on Google Play. My focus is systems that must stay correct in production: Stripe and mobile-money payments, real-time features and AWS."),
       ] }),
 
       section("Experience"),
@@ -123,7 +123,7 @@ const doc = new Document({
       role("Kola Group", "Software Developer", "Oct 2025 – Jul 2026"),
       bullet("Built payment-aggregator services for fintech clients: pay-ins, payouts, mass payments and other money-movement operations."),
 
-      role("Hello Computing", "Junior Full-Stack Developer", "Nov 2023 – Oct 2025"),
+      role("Hello Computing, Germany", "Junior Full-Stack Developer, remote", "Nov 2023 – Oct 2025"),
       bullet("Built an e-commerce store and a digital business card with QR scanning, using NestJS, Angular, Redis and SCSS."),
 
       role("CIA Consulting, Yaoundé", "Web Developer Intern", "May 2023 – Nov 2023"),

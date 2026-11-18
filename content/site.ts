@@ -7,7 +7,7 @@ export const profile = {
   role: "Full-stack product engineer",
   headline: "I ship products people use, and keep them running.",
   intro:
-    "TypeScript engineer who owns products end to end: data model, API, web and mobile clients, CI and cloud. I already work remotely across borders, for Nexma in Canada and a client in Belgium, and co-founded Poky Group. My focus is systems that must stay correct in production: payments, real-time features, mobile releases and AWS.",
+    "TypeScript engineer who owns products end to end: data model, API, web and mobile clients, CI and cloud. I have worked remotely across borders since 2023, for companies in Germany and Canada and a client in Belgium, and co-founded Poky Group. My focus is systems that must stay correct in production: payments, real-time features, mobile releases and AWS.",
   location: "Cameroon · UTC+1",
   availability: "Open to remote roles worldwide",
   email: "jospenwolongwo@gmail.com",
@@ -192,7 +192,7 @@ export const experience: Role[] = [
     points: ["Built payment-aggregator services for fintech clients: pay-ins, payouts, mass payments and other money-movement operations."],
   },
   {
-    org: "Hello Computing",
+    org: "Hello Computing · Germany (remote)",
     title: "Junior Full-stack Developer",
     period: "Nov 2023 – Oct 2025",
     points: ["Built an e-commerce store and a digital business card with QR scanning, using NestJS, Angular, Redis and SCSS."],
