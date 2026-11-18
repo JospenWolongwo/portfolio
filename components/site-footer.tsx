@@ -1,5 +1,4 @@
 import { profile } from "@/content/site";
-import { live } from "@/content/live";
 
 export function SiteFooter() {
   return (
@@ -30,15 +29,9 @@ export function SiteFooter() {
             </a>
           )}
         </div>
-        <div className="mt-16 flex flex-col gap-2 border-t border-rule pt-6 font-mono text-[11px] text-muted sm:flex-row sm:justify-between">
+        <div className="mt-16 border-t border-rule pt-6 font-mono text-[11px] text-muted">
           <span>
             {profile.name} · {profile.location} · {profile.availability}
-          </span>
-          <span>
-            {live.checkedAt
-              ? `Live status checked by CI on ${live.checkedAt.slice(0, 10)}`
-              : "Live status is checked by CI on every deploy"}
-            {" · static, no trackers"}
           </span>
         </div>
       </div>
