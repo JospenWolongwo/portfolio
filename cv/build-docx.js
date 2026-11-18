@@ -87,7 +87,7 @@ const doc = new Document({
       new Paragraph({ style: "Name", children: [new TextRun("Jospen Wolongwo")] }),
       new Paragraph({ style: "Headline", children: [
         new TextRun({ text: "Full-Stack Product Engineer (TypeScript)", bold: true }),
-        new TextRun("  ·  Remote from Cameroon (UTC+1)"),
+        new TextRun("  ·  Open to remote roles worldwide  ·  Cameroon, UTC+1"),
       ] }),
       new Paragraph({ style: "Contact", children: [
         link("jospenwolongwo@gmail.com", "mailto:jospenwolongwo@gmail.com"), new TextRun("  ·  "),
@@ -97,7 +97,7 @@ const doc = new Document({
       ] }),
 
       new Paragraph({ style: "Summary", children: [
-        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, working remotely for Nexma in Canada and for a client in Belgium. I build and run products end to end, from database to mobile release: six are live, three on Google Play. My focus is systems that must stay correct in production: Stripe and mobile-money payments, real-time features and AWS."),
+        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, already working remotely across borders, for Nexma in Canada and a client in Belgium. I build and run products end to end, from database to mobile release: six are live, three on Google Play. My focus is systems that must stay correct in production: Stripe and mobile-money payments, real-time features and AWS."),
       ] }),
 
       section("Experience"),

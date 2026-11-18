@@ -7,9 +7,9 @@ export const profile = {
   role: "Full-stack product engineer",
   headline: "I ship products people use, and keep them running.",
   intro:
-    "TypeScript engineer who owns products end to end: data model, API, web and mobile clients, CI and cloud. I work remotely for Nexma, a Canadian SaaS company, deliver for a client in Belgium, and co-founded Poky Group. My focus is systems that must stay correct in production: payments, real-time features, mobile releases and AWS.",
+    "TypeScript engineer who owns products end to end: data model, API, web and mobile clients, CI and cloud. I already work remotely across borders, for Nexma in Canada and a client in Belgium, and co-founded Poky Group. My focus is systems that must stay correct in production: payments, real-time features, mobile releases and AWS.",
   location: "Cameroon · UTC+1",
-  availability: "Open to remote roles",
+  availability: "Open to remote roles worldwide",
   email: "jospenwolongwo@gmail.com",
   github: "https://github.com/JospenWolongwo",
   linkedin: "https://www.linkedin.com/in/jospen/" as string | null,
