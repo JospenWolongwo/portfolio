@@ -149,7 +149,7 @@ export const experience: Role[] = [
   {
     org: "Poky Group SAS",
     title: "Co-founder & General Director · CTO",
-    period: "2025 – now",
+    period: "Dec 2024 – now",
     points: [
       "Lead engineering across five products: PikDrive, TheLouk, HopiMed, Maison Curtis and TheLuxar. Sole engineer on four, including Maison Curtis for a client in Belgium, delivered in a month.",
       "Built payments end to end: mobile money (PawaPay, MTN MoMo, Orange Money) with payouts and reconciliation on PikDrive, and live Stripe deposits with a signed webhook and automatic refunds on Maison Curtis.",
@@ -194,7 +194,7 @@ export const experience: Role[] = [
   {
     org: "Hello Computing",
     title: "Junior Full-stack Developer",
-    period: "Nov 2023 – 2025",
+    period: "Nov 2023 – Oct 2025",
     points: ["Built an e-commerce store and a digital business card with QR scanning, using NestJS, Angular, Redis and SCSS."],
   },
   {

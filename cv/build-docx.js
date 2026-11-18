@@ -108,7 +108,7 @@ const doc = new Document({
       bullet("Designed the attendance engine: every contract planned 30 days ahead, replanned safely when a schedule changes, with revision checks and idempotency keys so retries never apply twice."),
       bullet("Built location-aware attendance with privacy by design: polygon site zones, append-only location trails, 90-day retention with legal holds, independent review of every change."),
 
-      role("Poky Group SAS", "Co-founder, General Director and CTO", "2025 – Present"),
+      role("Poky Group SAS", "Co-founder, General Director and CTO", "Dec 2024 – Present"),
       context([new TextRun("Product company I co-founded. I lead engineering and write most of the code.")]),
       bullet(b("Maison Curtis"), " (", link("maisoncurtis.com", "https://maisoncurtis.com"), ", client in Belgium): sole engineer, delivered in a month (52 PRs). Live Stripe payments; a PostgreSQL constraint makes double bookings impossible; replay-safe webhook with automatic refunds."),
       bullet(b("PikDrive"), " (", link("pikdrive.com", "https://pikdrive.com"), "): sole engineer on ride-sharing with mobile-money payments (MTN MoMo, Orange Money via PawaPay), driver payouts and refunds. Idempotent booking API for the upcoming mobile app."),
@@ -123,7 +123,7 @@ const doc = new Document({
       role("Kola Group", "Software Developer", "Oct 2025 – Jul 2026"),
       bullet("Built payment-aggregator services for fintech clients: pay-ins, payouts, mass payments and other money-movement operations."),
 
-      role("Hello Computing", "Junior Full-Stack Developer", "Nov 2023 – 2025"),
+      role("Hello Computing", "Junior Full-Stack Developer", "Nov 2023 – Oct 2025"),
       bullet("Built an e-commerce store and a digital business card with QR scanning, using NestJS, Angular, Redis and SCSS."),
 
       role("CIA Consulting, Yaoundé", "Web Developer Intern", "May 2023 – Nov 2023"),
