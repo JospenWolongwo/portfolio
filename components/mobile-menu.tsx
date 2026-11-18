@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 
-type Props = { nav: { href: string; label: string }[]; linkedin: string | null; github: string };
+type Props = { nav: { href: string; label: string }[]; linkedin: string | null; github: string; label: string };
 
 // Native <details>: opens with the keyboard and works before hydration. Choosing a link closes it.
-export function MobileMenu({ nav, linkedin, github }: Props) {
+export function MobileMenu({ nav, linkedin, github, label }: Props) {
   const ref = useRef<HTMLDetailsElement>(null);
   const close = () => ref.current?.removeAttribute("open");
   const item = "block rounded-lg px-3 py-2.5 text-[15px] hover:bg-paper";
@@ -13,7 +13,7 @@ export function MobileMenu({ nav, linkedin, github }: Props) {
           <details ref={ref} className="group relative md:hidden">
             <summary
               className="grid h-8 w-8 cursor-pointer list-none place-items-center rounded-full border border-rule text-muted hover:text-ink [&::-webkit-details-marker]:hidden"
-              aria-label="Menu"
+              aria-label={label}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                 <path d="M4 7h16M4 12h16M4 17h16" className="group-open:hidden" />
