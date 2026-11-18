@@ -12,6 +12,7 @@ const INK = "1A1A1A";
 const GREY = "5A5A5A";
 const W = 11906, M = 850; // A4, 1.5 cm margins
 const RIGHT = W - 2 * M;
+const SKILL_COL = 1900; // skills values start in one column
 
 const link = (text, url) =>
   new ExternalHyperlink({ link: url, children: [new TextRun({ text, style: "Hyperlink" })] });
@@ -38,38 +39,39 @@ const bullet = (...runs) =>
   });
 const b = (t) => new TextRun({ text: t, bold: true });
 const skill = (k, v) =>
-  new Paragraph({ style: "Skill", children: [new TextRun({ text: `${k}:  `, bold: true }), new TextRun(v)] });
+  new Paragraph({ style: "Skill", children: [new TextRun({ text: k, bold: true }), new TextRun({ children: [new Tab(), v] })] });
 
 const doc = new Document({
   creator: "Jospen Wolongwo",
   title: "Jospen Wolongwo · Full-Stack Engineer · CV",
   styles: {
-    default: { document: { run: { font: FONT, size: 19, color: INK } } },
+    default: { document: { run: { font: FONT, size: 20, color: INK } } },
     characterStyles: [
       { id: "Hyperlink", name: "Hyperlink", run: { color: INK, underline: {} } },
     ],
     paragraphStyles: [
       { id: "Name", name: "CV Name", run: { font: HEAD, size: 44, color: INK },
         paragraph: { spacing: { before: 0, after: 40 } } },
-      { id: "Headline", name: "CV Headline", run: { size: 21, color: INK },
+      { id: "Headline", name: "CV Headline", run: { size: 22, color: INK },
         paragraph: { spacing: { before: 0, after: 40 } } },
       { id: "Contact", name: "CV Contact", run: { size: 18, color: GREY },
         paragraph: { spacing: { before: 0, after: 0 },
           border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: INK, space: 8 } } } },
       { id: "Summary", name: "CV Summary", run: { size: 20 },
-        paragraph: { spacing: { before: 200, after: 0, line: 264 } } },
-      { id: "Section", name: "CV Section", run: { font: HEAD, size: 21, color: INK },
-        paragraph: { spacing: { before: 230, after: 90 }, keepNext: true,
+        paragraph: { spacing: { before: 160, after: 0, line: 259 } } },
+      { id: "Section", name: "CV Section", run: { font: HEAD, size: 22, color: INK },
+        paragraph: { spacing: { before: 190, after: 80 }, keepNext: true,
           border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: "BFBFBF", space: 3 } } } },
       { id: "Role", name: "CV Role", run: { size: 21 },
-        paragraph: { spacing: { before: 115, after: 0 }, keepNext: true,
+        paragraph: { spacing: { before: 95, after: 0 }, keepNext: true,
           tabStops: [{ type: TabStopType.RIGHT, position: RIGHT }] } },
       { id: "Context", name: "CV Context", run: { size: 18, italics: true, color: GREY },
         paragraph: { spacing: { before: 10, after: 30 }, keepNext: true } },
-      { id: "Bullet", name: "CV Bullet", run: { size: 19 },
+      { id: "Bullet", name: "CV Bullet", run: { size: 20 },
         paragraph: { spacing: { before: 0, after: 30, line: 252 } } },
-      { id: "Skill", name: "CV Skill", run: { size: 19 },
-        paragraph: { spacing: { before: 0, after: 30 }, indent: { left: 0 } } },
+      { id: "Skill", name: "CV Skill", run: { size: 20 },
+        paragraph: { spacing: { before: 0, after: 30 }, indent: { left: SKILL_COL, hanging: SKILL_COL },
+          tabStops: [{ type: TabStopType.LEFT, position: SKILL_COL }] } },
     ],
   },
   numbering: {
@@ -80,7 +82,7 @@ const doc = new Document({
     }],
   },
   sections: [{
-    properties: { page: { size: { width: W, height: 16838 }, margin: { top: 780, bottom: 700, left: M, right: M } } },
+    properties: { page: { size: { width: W, height: 16838 }, margin: { top: 680, bottom: 600, left: M, right: M } } },
     children: [
       new Paragraph({ style: "Name", children: [new TextRun("Jospen Wolongwo")] }),
       new Paragraph({ style: "Headline", children: [
@@ -95,28 +97,28 @@ const doc = new Document({
       ] }),
 
       new Paragraph({ style: "Summary", children: [
-        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, working remotely for Nexma, a Canadian SaaS company, and for a client in Belgium. I build and run products end to end, from database to mobile release: six are live, three on Google Play. My focus is systems that must stay correct in production: payments (Stripe and mobile money), real-time features, mobile releases and AWS."),
+        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with three years of professional experience, working remotely for Nexma in Canada and for a client in Belgium. I build and run products end to end, from database to mobile release: six are live, three on Google Play. My focus is systems that must stay correct in production: Stripe and mobile-money payments, real-time features and AWS."),
       ] }),
 
       section("Experience"),
 
       role("Nexma", "Backend Engineer, delivering full-stack", "Apr 2026 – Present"),
-      context([new TextRun("Remote, Canada  ·  "), link("nexma.org", "https://nexma.org"), new TextRun(", work-management SaaS on web and Google Play  ·  NestJS, PostgreSQL, Next.js")]),
-      bullet(b("#1 contributor"), " on the API and web app: ", b("401 merged pull requests"), " since April 2026."),
-      bullet("Designed the attendance engine: every contract planned ", b("30 days ahead"), ", replanned safely when a schedule changes, with revision checks and idempotency keys so retries never apply twice."),
+      context([new TextRun("Remote, Canada  ·  "), link("nexma.org", "https://nexma.org"), new TextRun(", work-management SaaS on web and Google Play")]),
+      bullet("#1 contributor on the API and web app, with ", b("401 merged pull requests"), " since April 2026."),
+      bullet("Designed the attendance engine: every contract planned 30 days ahead, replanned safely when a schedule changes, with revision checks and idempotency keys so retries never apply twice."),
       bullet("Built location-aware attendance with privacy by design: polygon site zones, append-only location trails, 90-day retention with legal holds, independent review of every change."),
 
       role("Poky Group SAS", "Co-founder, General Director and CTO", "2025 – Present"),
       context([new TextRun("Product company I co-founded. I lead engineering and write most of the code.")]),
       bullet(b("Maison Curtis"), " (", link("maisoncurtis.com", "https://maisoncurtis.com"), ", client in Belgium): sole engineer, delivered in a month (52 PRs). Live Stripe payments; a PostgreSQL constraint makes double bookings impossible; replay-safe webhook with automatic refunds."),
-      bullet(b("PikDrive"), " (", link("pikdrive.com", "https://pikdrive.com"), "): sole engineer on ride-sharing with mobile-money payments (MTN MoMo and Orange Money via PawaPay), driver payouts and refunds. Idempotent booking creation in PostgreSQL, rolling out from development."),
-      bullet(b("TheLouk"), " (", link("thelouk.com", "https://thelouk.com"), ", Google Play): core mobile engineer on Expo and React Native. Push notifications, realtime chat and EAS release pipeline."),
-      bullet(b("HopiMed"), " (", link("hopimed237.site", "https://hopimed237.site"), "): sole engineer. AI assistant grounded in live data via OpenAI tool calling; prescription reading that flags doubt instead of guessing."),
+      bullet(b("PikDrive"), " (", link("pikdrive.com", "https://pikdrive.com"), "): sole engineer on ride-sharing with mobile-money payments (MTN MoMo, Orange Money via PawaPay), driver payouts and refunds. Idempotent booking API for the upcoming mobile app."),
+      bullet(b("TheLouk"), " (", link("thelouk.com", "https://thelouk.com"), ", Google Play): core mobile engineer on Expo and React Native. Push notifications, realtime chat, release pipeline."),
+      bullet(b("HopiMed"), " (", link("hopimed237.site", "https://hopimed237.site"), "): sole engineer. AI assistant grounded in live data (OpenAI tool calling); prescription reading that flags doubt."),
       bullet(b("TheLuxar"), " (staging, pre-launch): 130 merged PRs, solo. Commerce and delivery platform on NestJS, Fastify, Redis and BullMQ. Fixed a token-rotation race that would have logged customers out."),
 
       role("Contract work", null, "Mar 2026 – Present"),
-      bullet(b("Gajo Livestock"), " (agritech, Google Play): own the React admin console, 79 of 85 commits. Subscription plans, AI usage quotas, and Playwright end-to-end tests in GitLab CI."),
-      bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): built an AWS environment with CDK for 13 apps (VPC, Aurora, Valkey, ECR, three ECS clusters). All 8 services healthy at hand-over, with ADRs and runbooks."),
+      bullet(b("Gajo Livestock"), " (agritech, Google Play): own the React admin console, 79 of 85 commits. Subscriptions, AI usage quotas, Playwright tests in GitLab CI."),
+      bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): built a 13-app AWS environment with CDK (Aurora, Valkey, ECS). All 8 services healthy at hand-over, with ADRs and runbooks."),
 
       role("Kola Group", "Software Developer", "Oct 2025 – Jul 2026"),
       bullet("Built payment-aggregator services for fintech clients: pay-ins, payouts, mass payments and other money-movement operations."),
