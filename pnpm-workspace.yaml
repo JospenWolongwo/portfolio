@@ -1,0 +1,27 @@
+# Pinned to versions in the local store so installs work on slow networks.
+overrides:
+  "postcss": "8.5.10"
+  "@tailwindcss/node": "4.2.2"
+  "@tailwindcss/oxide": "4.2.2"
+  "lightningcss": "1.32.0"
+  "jiti": "2.6.1"
+  "enhanced-resolve": "5.20.1"
+  "magic-string": "0.30.21"
+  "@next/env": "16.2.3"
+  "@swc/helpers": "0.5.15"
+  "caniuse-lite": "1.0.30001788"
+  "nanoid": "3.3.11"
+  "picocolors": "1.1.1"
+  "source-map-js": "1.2.1"
+  "detect-libc": "2.1.2"
+  "tapable": "2.3.2"
+  "graceful-fs": "4.2.11"
+  "scheduler": "0.27.0"
+  "undici-types": "7.19.2"
+  "csstype": "3.2.3"
+  "sharp": "0.34.5"
+  "@jridgewell/sourcemap-codec": "1.5.5"
+  "tslib": "2.8.1"
+  "@alloc/quick-lru": "5.2.0"
+allowBuilds:
+  sharp: false

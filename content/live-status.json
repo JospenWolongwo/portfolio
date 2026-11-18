@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-11-18T06:10:21.237Z",
+  "results": {
+    "nexma": {
+      "ok": true,
+      "status": 200
+    },
+    "pikdrive": {
+      "ok": true,
+      "status": 200
+    },
+    "thelouk": {
+      "ok": true,
+      "status": 200
+    },
+    "maisoncurtis": {
+      "ok": true,
+      "status": 200
+    },
+    "hopimed": {
+      "ok": false,
+      "status": null
+    },
+    "gajo": {
+      "ok": true,
+      "status": 200
+    },
+    "theluxar": {
+      "ok": true,
+      "status": 200
+    }
+  }
+}

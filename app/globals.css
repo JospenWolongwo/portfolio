@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f5f2ea;
+  --card: #fbf9f3;
+  --ink: #16150f;
+  --ink-2: #3a382f;
+  --muted: #6b675c;
+  --rule: #dcd7c9;
+  --signal: #0e7a4f;
+  --signal-soft: #d6eadf;
+  --amber: #a86400;
+  --amber-soft: #f3e3c6;
+  --code-bg: #1b1a15;
+  --code-ink: #ece8dc;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f100d;
+    --card: #161712;
+    --ink: #ece8dc;
+    --ink-2: #cbc7ba;
+    --muted: #96927f;
+    --rule: #2a2a23;
+    --signal: #3ccb8b;
+    --signal-soft: #143326;
+    --amber: #e9a23b;
+    --amber-soft: #3a2a10;
+    --code-bg: #090a08;
+    --code-ink: #ece8dc;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #0f100d;
+  --card: #161712;
+  --ink: #ece8dc;
+  --ink-2: #cbc7ba;
+  --muted: #96927f;
+  --rule: #2a2a23;
+  --signal: #3ccb8b;
+  --signal-soft: #143326;
+  --amber: #e9a23b;
+  --amber-soft: #3a2a10;
+  --code-bg: #090a08;
+  --code-ink: #ece8dc;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+  --font-display: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--paper);
+}
+
+/* Faint engineering-paper grid behind the hero only */
+.grid-paper {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--rule) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--rule) 55%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at 30% 30%, black 20%, transparent 75%);
+}
+
+.pulse {
+  position: relative;
+}
+.pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  background: var(--signal);
+  opacity: 0.35;
+  animation: pulse 2.4s ease-out infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(0.6); opacity: 0.45; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.reveal {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse::after, .reveal { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+.code-block {
+  font-variant-ligatures: none;
+  background: var(--code-bg);
+  color: var(--code-ink);
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
