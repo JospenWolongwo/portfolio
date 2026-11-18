@@ -65,15 +65,15 @@ const doc = new Document({
       { id: "Summary", name: "CV Summary", run: { size: 21 },
         paragraph: { spacing: { before: 170, after: 0, line: 268 } } },
       { id: "Section", name: "CV Section", run: { font: HEAD, size: 24, color: INK },
-        paragraph: { spacing: { before: 175, after: 85 }, keepNext: true,
+        paragraph: { spacing: { before: 150, after: 70 }, keepNext: true,
           border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: "BFBFBF", space: 3 } } } },
       { id: "Role", name: "CV Role", run: { size: 22 },
-        paragraph: { spacing: { before: 120, after: 0 }, keepNext: true,
+        paragraph: { spacing: { before: 105, after: 0 }, keepNext: true,
           tabStops: [{ type: TabStopType.RIGHT, position: RIGHT }] } },
       { id: "Context", name: "CV Context", run: { size: 19, italics: true, color: GREY },
         paragraph: { spacing: { before: 10, after: 30 }, keepNext: true } },
       { id: "Bullet", name: "CV Bullet", run: { size: 21 },
-        paragraph: { spacing: { before: 0, after: 45, line: 264 } } },
+        paragraph: { spacing: { before: 0, after: 40, line: 264 } } },
       { id: "Skill", name: "CV Skill", run: { size: 21 },
         paragraph: { spacing: { before: 0, after: 30 }, indent: { left: SKILL_COL, hanging: SKILL_COL },
           tabStops: [{ type: TabStopType.LEFT, position: SKILL_COL }] } },
@@ -87,7 +87,7 @@ const doc = new Document({
     }],
   },
   sections: [{
-    properties: { page: { size: { width: W, height: 16838 }, margin: { top: 700, bottom: 560, left: M, right: M } } },
+    properties: { page: { size: { width: W, height: 16838 }, margin: { top: 680, bottom: 480, left: M, right: M } } },
     children: [
       new Paragraph({ style: "Name", children: [new TextRun("Jospen Wolongwo")] }),
       new Paragraph({ style: "Headline", children: [
@@ -102,7 +102,7 @@ const doc = new Document({
       ] }),
 
       new Paragraph({ style: "Summary", children: [
-        new TextRun("Full-stack product engineer with over three years owning SaaS, payment and mobile products end to end, from PostgreSQL and TypeScript APIs to React Native and AWS. I work across borders, with teams and clients in Germany, Canada and Belgium, and focus on reliability: idempotent payments, database-enforced rules, tested releases."),
+        new TextRun("Full-stack product engineer with over three years owning SaaS, payment and mobile products end to end, from PostgreSQL and TypeScript to React Native and AWS, with teams and clients in Germany, Canada and Belgium. Focus on reliability: TDD in hexagonal architectures, idempotent payments, database-enforced rules."),
       ] }),
 
       section("Experience"),
@@ -121,7 +121,7 @@ const doc = new Document({
       bullet(b("HopiMed"), " (", link("hopimed237.site", "https://hopimed237.site"), "): sole engineer; grounded AI assistant and prescription reading."),
       bullet(b("TheLuxar"), " (staging, pre-launch): 130 merged PRs, solo, on NestJS, Redis and BullMQ; fixed an auth race."),
 
-      role("Contract work", null, "Mar 2026 – Present"),
+      role("Contract work", null, "Feb 2026 – Present"),
       bullet(b("Gajo Livestock"), " (agritech, Google Play): led the landing page and admin console; built the web marketplace flow."),
       bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): 13-app AWS environment in CDK, all 8 services healthy."),
 
@@ -131,14 +131,13 @@ const doc = new Document({
       role("Hello Computing, Germany", "Junior Full-Stack Developer, remote", "Nov 2023 – Oct 2025", "https://hellocomputing.de"),
       bullet("Built an e-commerce store and a QR digital business card with NestJS, Angular and Redis."),
 
-      role("CIA Consulting, Yaoundé", "Web Developer Intern", "May 2023 – Nov 2023", "https://cia-service.com"),
-      bullet("First professional role: developed client web applications with Laravel and React."),
+      role("CIA Consulting, Yaoundé", "Web Developer Intern, client web apps in Laravel and React", "May 2023 – Nov 2023", "https://cia-service.com"),
 
       section("Skills"),
-      skill("Programming", "TypeScript, JavaScript, SQL, PHP"),
-      skill("Backend and data", "NestJS, Fastify, Prisma, Drizzle, PostgreSQL, Redis, BullMQ, Supabase, Laravel"),
+      skill("Backend and data", "TypeScript, NestJS, Fastify, Prisma, Drizzle, PostgreSQL, Redis, BullMQ, Supabase"),
       skill("Web and mobile", "Next.js, React, Angular, React Native (Expo), Tailwind CSS"),
-      skill("Cloud and delivery", "AWS (CDK, ECS, Aurora), Vercel, Fly.io, Firebase, GitHub Actions, GitLab CI, Playwright"),
+      skill("Testing", "TDD in hexagonal architecture · Jest, Vitest, Testcontainers, Playwright, pgTAP"),
+      skill("Cloud and delivery", "AWS (CDK, ECS, Aurora), Vercel, Fly.io, Firebase, GitHub Actions, GitLab CI"),
       skill("Payments and AI", "Stripe, PawaPay, MTN MoMo, Orange Money, OpenAI tools and vision"),
 
       section("Education"),
@@ -146,9 +145,10 @@ const doc = new Document({
       context([new TextRun("University of Dschang, Fotso Victor Institute of Technology (IUEs/INSAM)  ·  Grade: A (Excellent)")]),
       role("Higher National Diploma (HND), Computer Engineering, Software Engineering option", null, "2022"),
       context([new TextRun("Cameroon Ministry of Higher Education  ·  Grade: B+")]),
+      role("IBM DevOps and Software Engineering Professional Certificate, Coursera (in progress)", null, "2026"),
 
       section("Languages"),
-      plain(b("English"), " · professional working proficiency      ", b("French"), " · professional working proficiency"),
+      plain(b("English and French"), " · professional working proficiency      ", b("German and Dutch"), " · elementary, learning"),
 
       section("Interests"),
       plain("Fintech and financial inclusion in Africa  ·  building products  ·  fitness training and swimming"),

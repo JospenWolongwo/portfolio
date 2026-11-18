@@ -8,7 +8,7 @@ export const profile = {
   role: "Ingénieur produit full-stack",
   headline: "Je livre des produits que les gens utilisent, et je les fais tourner.",
   intro:
-    "Ingénieur TypeScript qui prend en charge les produits de bout en bout : modèle de données, API, clients web et mobile, CI et cloud. Depuis 2023, je travaille au-delà des frontières : à distance pour une entreprise en Allemagne, dans une équipe répartie entre le Canada et le Cameroun, et pour un client en Belgique. J'ai cofondé Poky Group. Ma spécialité : des systèmes qui restent justes en production, des paiements au temps réel, en passant par les versions mobiles et AWS.",
+    "Ingénieur TypeScript qui prend en charge les produits de bout en bout : modèle de données, API, clients web et mobile, CI et cloud. Depuis 2023, je travaille au-delà des frontières : à distance pour une entreprise en Allemagne, dans une équipe répartie entre le Canada et le Cameroun, et pour un client en Belgique. J'ai cofondé Poky Group. Ma spécialité : des systèmes qui restent justes en production, construits en TDD dans des architectures hexagonales, des paiements au temps réel, en passant par les versions mobiles et AWS.",
   location: "Cameroun · UTC+1",
   availability: "Ouvert aux postes à distance, partout dans le monde",
   cv: "/Jospen-Wolongwo-CV-FR.pdf" as string | null,
@@ -101,7 +101,7 @@ const roleText: Record<string, Omit<Role, "url">> = {
   "Gajo Livestock": {
     org: "Gajo Livestock",
     title: "Ingénieur frontend · mission",
-    period: "mars 2026 – aujourd'hui",
+    period: "févr. 2026 – aujourd'hui",
     points: [
       "Parcours d'achat de l'application web : accueil, catalogue et fiches produit, panier, validation de commande, enregistrement du paiement, commandes et livraison, formules d'abonnement.",
       "Responsable de la landing page (environ 70 % du code) et de la console d'administration React 19 (95 % des commits) : abonnements, suivi des quotas IA par utilisateur, crédit et statistiques.",
@@ -143,6 +143,11 @@ export const experience: Role[] = experienceEn.map((r) => {
 });
 
 const principleText = [
+  {
+    title: "Tester d'abord, à chaque couche.",
+    body: "Je travaille en TDD dans des architectures hexagonales : logique métier testée isolément, adaptateurs contre une vraie infrastructure, parcours testés de bout en bout.",
+    proof: "TheLuxar · 1 295 tests unitaires + 598 e2e",
+  },
   {
     title: "Une nouvelle tentative doit être sans risque.",
     body: "Les réseaux mobiles perdent des requêtes. Une réservation ou un paiement envoyé deux fois doit quand même n'avoir lieu qu'une fois.",

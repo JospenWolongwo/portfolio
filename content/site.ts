@@ -7,7 +7,7 @@ export const profile = {
   role: "Full-stack product engineer",
   headline: "I ship products people use, and keep them running.",
   intro:
-    "TypeScript engineer who owns products end to end: data model, API, web and mobile clients, CI and cloud. Since 2023 I have worked across borders: remotely for a company in Germany, in a distributed team across Canada and Cameroon, and for a client in Belgium. I co-founded Poky Group. My focus is systems that must stay correct in production: payments, real-time features, mobile releases and AWS.",
+    "TypeScript engineer who owns products end to end: data model, API, web and mobile clients, CI and cloud. Since 2023 I have worked across borders: remotely for a company in Germany, in a distributed team across Canada and Cameroon, and for a client in Belgium. I co-founded Poky Group. My focus is systems that must stay correct in production, built test-first in hexagonal architectures: payments, real-time features, mobile releases and AWS.",
   location: "Cameroon · UTC+1",
   availability: "Open to remote roles worldwide",
   email: "jospenwolongwo@gmail.com",
@@ -175,7 +175,7 @@ export const experience: Role[] = [
     org: "Gajo Livestock",
     url: "https://gajolivestock.com",
     title: "Frontend Engineer · contract",
-    period: "Mar 2026 – now",
+    period: "Feb 2026 – now",
     points: [
       "Built the web app's marketplace flow: home, catalogue and product pages, cart, checkout, payment registration, orders and delivery, subscription plans.",
       "Lead on the landing page (about 70% of its code) and the React 19 admin console (95% of commits): subscription plans, per-user AI quota tracking, credit flows and statistics.",
@@ -215,6 +215,12 @@ export const experience: Role[] = [
 ];
 
 export const principles = [
+  {
+    title: "Test first, at every layer.",
+    body: "I work test-driven in hexagonal architectures: domain logic tested in isolation, adapters against real infrastructure, journeys end to end.",
+    proof: "TheLuxar · 1,295 unit + 598 e2e tests",
+    href: "/work/theluxar-auth-race/",
+  },
   {
     title: "Retries must be safe.",
     body: "Mobile networks drop requests. A booking or a payment sent twice must still happen once.",
