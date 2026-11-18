@@ -152,6 +152,7 @@ export const experience: Role[] = [
     url: "https://pokygroup.com",
     title: "Co-founder & CTO",
     period: "Dec 2024 – now",
+    note: "Venture started in Dec 2024; incorporated as Poky Group SAS in Aug 2025.",
     points: [
       "Lead engineering across five products: PikDrive, TheLouk, HopiMed, Maison Curtis and TheLuxar. Sole engineer on four, including Maison Curtis for a client in Belgium, delivered in a month.",
       "Built payments end to end: mobile money (PawaPay, MTN MoMo, Orange Money) with payouts and reconciliation on PikDrive, and live Stripe deposits with a signed webhook and automatic refunds on Maison Curtis.",

@@ -100,7 +100,7 @@ const doc = new Document({
       ] }),
 
       new Paragraph({ style: "Summary", children: [
-        new TextRun("Product engineer (TypeScript, NestJS, Next.js, React Native, PostgreSQL, AWS) with over three years of experience across borders: remote for a company in Germany, in a team across Canada and Cameroon, and for a client in Belgium. I build and run products end to end; six are live, three on Google Play. Focus: systems that stay correct in production, from Stripe and mobile-money payments to real-time features and AWS."),
+        new TextRun("Full-stack product engineer with over three years owning SaaS, payment and mobile products end to end: PostgreSQL, TypeScript APIs (NestJS), Next.js, React Native releases and AWS. Across borders: remote for a company in Germany, a hybrid team across Canada and Cameroon, and a client in Belgium. Focus on reliability: idempotent payments, rules enforced by the database, releases tested before they ship."),
       ] }),
 
       section("Experience"),
@@ -112,19 +112,19 @@ const doc = new Document({
       bullet("Built location-aware attendance with privacy by design: polygon site zones, append-only location trails, 90-day retention with legal holds, independent review of every change."),
 
       role("Poky Group SAS", "Co-founder and CTO", "Dec 2024 – Present", "https://pokygroup.com"),
-      context([new TextRun("Product company I co-founded. I lead engineering and write most of the code.")]),
+      context([new TextRun("Co-founded in Dec 2024, incorporated as an SAS in Aug 2025. I lead engineering and write most of the code.")]),
       bullet(b("Maison Curtis"), " (", link("maisoncurtis.com", "https://maisoncurtis.com"), ", client in Belgium): sole engineer, delivered in a month (52 PRs). Live Stripe payments; a PostgreSQL constraint makes double bookings impossible; replay-safe webhook with automatic refunds."),
       bullet(b("PikDrive"), " (", link("pikdrive.com", "https://pikdrive.com"), "): sole engineer on ride-sharing with mobile-money payments (MTN MoMo, Orange Money via PawaPay), driver payouts and refunds. Idempotent booking API for the upcoming mobile app."),
-      bullet(b("TheLouk"), " (", link("thelouk.com", "https://thelouk.com"), ", Google Play): core mobile engineer on Expo and React Native. Push notifications, realtime chat, release pipeline."),
-      bullet(b("HopiMed"), " (", link("hopimed237.site", "https://hopimed237.site"), "): sole engineer. AI assistant grounded in live data (OpenAI tool calling); prescription reading that flags doubt."),
+      bullet(b("TheLouk"), " (", link("thelouk.com", "https://thelouk.com"), ", Google Play): core mobile engineer (Expo): push, realtime chat, releases."),
+      bullet(b("HopiMed"), " (", link("hopimed237.site", "https://hopimed237.site"), "): sole engineer; grounded AI assistant, prescription reading that flags doubt."),
       bullet(b("TheLuxar"), " (staging, pre-launch): 130 merged PRs, solo. Commerce and delivery platform on NestJS, Fastify, Redis and BullMQ. Fixed a token-rotation race that would have logged customers out."),
 
       role("Contract work", null, "Mar 2026 – Present"),
       bullet(b("Gajo Livestock"), " (agritech, Google Play): own the React admin console, 79 of 85 commits. Subscriptions, AI usage quotas, Playwright tests in GitLab CI."),
-      bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): built a 13-app AWS environment with CDK (Aurora, Valkey, ECS). All 8 services healthy at hand-over, with ADRs and runbooks."),
+      bullet(b("Fintech platform"), " (pre-launch, Jul – Aug 2026): 13-app AWS environment in CDK, 8/8 services healthy at hand-over."),
 
       role("Kola Group", "Software Developer", "Oct 2025 – Jul 2026", "https://kolagroup.io"),
-      bullet("Built payment-aggregator services for fintech clients: pay-ins, payouts, mass payments and other money-movement operations."),
+      bullet("Built payment-aggregator services for fintech clients: pay-ins, payouts and mass payments."),
 
       role("Hello Computing, Germany", "Junior Full-Stack Developer, remote", "Nov 2023 – Oct 2025", "https://hellocomputing.de"),
       bullet("Built an e-commerce store and a digital business card with QR scanning, using NestJS, Angular, Redis and SCSS."),
@@ -133,18 +133,19 @@ const doc = new Document({
       bullet("First professional role: developed client web applications with Laravel and React."),
 
       section("Skills"),
-      skill("Programming", "TypeScript, JavaScript, SQL, PHP"),
+      skill("Languages", "TypeScript, JavaScript, SQL, PHP  ·  spoken: English and French (professional)"),
       skill("Backend", "NestJS, Fastify, Prisma, Drizzle, Redis, BullMQ, Supabase, Laravel"),
       skill("Frontend and mobile", "Next.js, React, Angular, React Native with Expo, Tailwind CSS"),
       skill("Data and cloud", "PostgreSQL, MongoDB, AWS (CDK, ECS, Aurora), Vercel, Fly.io, Firebase"),
       skill("Delivery", "GitHub Actions, GitLab CI, Playwright, Testcontainers, pgTAP"),
       skill("Payments and AI", "Stripe, PawaPay, MTN MoMo, Orange Money; OpenAI tool calling and vision"),
 
-      skill("Spoken", "English and French, professional working proficiency"),
 
       section("Education"),
-      role("Professional Bachelor's in Software Engineering", "University of Dschang, via IUEs/INSAM · Excellent", "2023"),
-      role("HND in Software Engineering", "IUEs/INSAM · Excellent", "2022"),
+      role("Professional Bachelor's (Licence Professionnelle), Computer Engineering, Software Engineering option", null, "2023"),
+      context([new TextRun("University of Dschang, Fotso Victor Institute of Technology (IUEs/INSAM)  ·  Grade: A (Excellent)")]),
+      role("Higher National Diploma (HND), Computer Engineering, Software Engineering option", null, "2022"),
+      context([new TextRun("Cameroon Ministry of Higher Education  ·  Grade: B+")]),
     ],
   }],
 });
